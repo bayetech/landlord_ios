@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BKSearchResultViewController" customModule="BayeStyle" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButtonHeight" destination="eTF-ht-Y01" id="ij1-yF-prS"/>
+                <outlet property="cancelButtonRight" destination="pCh-ec-xJp" id="AoM-5w-lip"/>
+                <outlet property="cancelButtonWidth" destination="BHB-Yq-JZL" id="b6q-wi-SYO"/>
+                <outlet property="chatgroupLabel" destination="C95-pw-Hlg" id="JyK-YR-cfN"/>
+                <outlet property="contactButton" destination="2NB-EX-FrX" id="Vsy-k7-QZB"/>
+                <outlet property="contactButtonLeft" destination="JX5-mJ-Gsx" id="ye8-HO-erP"/>
+                <outlet property="contactButtonTop" destination="RJE-PW-XN1" id="ARd-Vz-Qrs"/>
+                <outlet property="contactLabel" destination="MTN-OL-uvz" id="9EG-Gz-gba"/>
+                <outlet property="contactLabelTop" destination="QVb-WH-YCl" id="Geu-bj-8X6"/>
+                <outlet property="groupButton" destination="Zz6-jD-l3S" id="vca-P2-wET"/>
+                <outlet property="groupButtonRight" destination="RTa-ic-R4c" id="c99-2E-2il"/>
+                <outlet property="textField" destination="0if-Iw-fmi" id="KET-PH-Mt4"/>
+                <outlet property="textFieldHeight" destination="0jX-Jm-eik" id="olO-Kd-Jwd"/>
+                <outlet property="textFieldLeft" destination="xar-Z3-99C" id="aI4-le-FB7"/>
+                <outlet property="textFieldRight" destination="LUd-Sn-KfQ" id="Lhs-Uz-fIw"/>
+                <outlet property="textFieldTop" destination="M3x-FW-KeZ" id="D4l-iV-Gg3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0if-Iw-fmi" customClass="BKSearchTextField" customModule="BayeStyle" customModuleProvider="target">
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="0jX-Jm-eik"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VH-FO-Rek">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="BHB-Yq-JZL"/>
+                        <constraint firstAttribute="height" constant="30" id="eTF-ht-Y01"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButtonClick:" destination="-1" eventType="touchUpInside" id="Fw1-vC-yk7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-EX-FrX">
+                    <state key="normal" image="saarch_group_icon"/>
+                    <connections>
+                        <action selector="contactButtonClick:" destination="-1" eventType="touchUpInside" id="YTl-hN-7Hd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人脉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTN-OL-uvz">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部落" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C95-pw-Hlg">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz6-jD-l3S">
+                    <state key="normal" image="search_customuser_icon"/>
+                    <connections>
+                        <action selector="chatGrouopClick:" destination="-1" eventType="touchUpInside" id="3Ge-B5-l4V"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Zz6-jD-l3S" firstAttribute="top" secondItem="2NB-EX-FrX" secondAttribute="top" id="7i5-9k-w8X"/>
+                <constraint firstItem="2NB-EX-FrX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="75" id="JX5-mJ-Gsx"/>
+                <constraint firstItem="0VH-FO-Rek" firstAttribute="leading" secondItem="0if-Iw-fmi" secondAttribute="trailing" constant="10" id="LUd-Sn-KfQ"/>
+                <constraint firstItem="0if-Iw-fmi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="M3x-FW-KeZ"/>
+                <constraint firstItem="MTN-OL-uvz" firstAttribute="centerX" secondItem="2NB-EX-FrX" secondAttribute="centerX" id="Nl0-xh-CAy"/>
+                <constraint firstItem="MTN-OL-uvz" firstAttribute="top" secondItem="2NB-EX-FrX" secondAttribute="bottom" constant="17" id="QVb-WH-YCl"/>
+                <constraint firstItem="2NB-EX-FrX" firstAttribute="top" secondItem="0if-Iw-fmi" secondAttribute="bottom" constant="51" id="RJE-PW-XN1"/>
+                <constraint firstAttribute="trailing" secondItem="Zz6-jD-l3S" secondAttribute="trailing" constant="75" id="RTa-ic-R4c"/>
+                <constraint firstItem="C95-pw-Hlg" firstAttribute="centerX" secondItem="Zz6-jD-l3S" secondAttribute="centerX" id="aeT-5H-IK5"/>
+                <constraint firstItem="0VH-FO-Rek" firstAttribute="centerY" secondItem="0if-Iw-fmi" secondAttribute="centerY" id="gDK-O1-hrU"/>
+                <constraint firstItem="C95-pw-Hlg" firstAttribute="top" secondItem="MTN-OL-uvz" secondAttribute="top" id="nNT-ME-brC"/>
+                <constraint firstAttribute="trailing" secondItem="0VH-FO-Rek" secondAttribute="trailing" constant="9" id="pCh-ec-xJp"/>
+                <constraint firstItem="0if-Iw-fmi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="xar-Z3-99C"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="saarch_group_icon" width="55" height="55"/>
+        <image name="search_customuser_icon" width="55" height="55"/>
+    </resources>
+</document>

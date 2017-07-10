@@ -1,0 +1,45 @@
+/************************************************************
+ *  * Hyphenate CONFIDENTIAL
+ * __________________
+ * Copyright (C) 2016 Hyphenate Inc. All rights reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of Hyphenate Inc.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Hyphenate Inc.
+ */
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import "EaseUI.h"
+#import "CYPhotosKit.h"
+
+#import "EMIMHelper.h"
+#import <HyphenateLite/HyphenateLite.h>
+#import "NSString+Extension.h"
+#import "UIImage+Extension.h"
+#import <HyphenateLite/EMMessageBody.h>
+#ifdef DEBUG
+// 输出结果标记出所在类方法与行数
+#define DTLog(fmt, ...)   NSLog((@"\n%s[Line: %d]™ ->" fmt), strrchr(__FUNCTION__,'['), __LINE__, ##__VA_ARGS__)
+
+#else
+
+#define DTLog(...)   {}
+
+#endif
+
+
+#define KScreenWidth    [UIScreen mainScreen].bounds.size.width
+#define KScreenHeight   [UIScreen mainScreen].bounds.size.height
+
+/// 用户头像
+static NSString *const KUserImageName                       = @"user_unregister";
+
+
+#endif

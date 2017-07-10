@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BKMineJoinGroupViewCell" id="KGk-i7-Jjw" customClass="BKMineJoinGroupViewCell" customModule="BayeSocial" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_unregister" translatesAutoresizingMaskIntoConstraints="NO" id="ii7-HF-8Ar">
+                        <rect key="frame" x="15" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="lSI-3h-W6R"/>
+                            <constraint firstAttribute="height" constant="40" id="yeR-be-n20"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Um-3B-3fN">
+                        <rect key="frame" x="65" y="9" width="0.0" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 部落主 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnE-mQ-lSP">
+                        <rect key="frame" x="70" y="15" width="44" height="14.5"/>
+                        <color key="backgroundColor" red="0.22352941176470587" green="0.73333333333333328" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUB-io-JTq">
+                        <rect key="frame" x="119" y="9" width="12" height="22"/>
+                        <state key="normal" image="message_volume-off"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8K-T0-SId">
+                        <rect key="frame" x="65" y="36" width="280" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mUB-io-JTq" firstAttribute="bottom" secondItem="4Um-3B-3fN" secondAttribute="bottom" id="3uG-80-KxG"/>
+                    <constraint firstItem="P8K-T0-SId" firstAttribute="top" secondItem="4Um-3B-3fN" secondAttribute="bottom" constant="5" id="4NT-xi-gB8"/>
+                    <constraint firstItem="4Um-3B-3fN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="7D0-qj-9Hb"/>
+                    <constraint firstItem="LnE-mQ-lSP" firstAttribute="leading" secondItem="4Um-3B-3fN" secondAttribute="trailing" constant="5" id="AQV-2h-aEU"/>
+                    <constraint firstAttribute="trailing" secondItem="P8K-T0-SId" secondAttribute="trailing" constant="30" id="EFe-hx-MVi"/>
+                    <constraint firstItem="mUB-io-JTq" firstAttribute="leading" secondItem="LnE-mQ-lSP" secondAttribute="trailing" constant="5" id="Wfq-ij-G9m"/>
+                    <constraint firstItem="ii7-HF-8Ar" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="erc-Kp-V1o"/>
+                    <constraint firstItem="ii7-HF-8Ar" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gBt-pe-F95"/>
+                    <constraint firstItem="LnE-mQ-lSP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="iAK-dV-CCJ"/>
+                    <constraint firstItem="mUB-io-JTq" firstAttribute="top" secondItem="4Um-3B-3fN" secondAttribute="top" id="lJi-qb-rzF"/>
+                    <constraint firstItem="4Um-3B-3fN" firstAttribute="leading" secondItem="ii7-HF-8Ar" secondAttribute="trailing" constant="10" id="nxQ-Bz-Wlu"/>
+                    <constraint firstItem="P8K-T0-SId" firstAttribute="leading" secondItem="4Um-3B-3fN" secondAttribute="leading" id="zfT-C4-ySS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImageView" destination="ii7-HF-8Ar" id="b2b-zf-X8U"/>
+                <outlet property="avatarImageViewLeft" destination="erc-Kp-V1o" id="6hW-g2-IVh"/>
+                <outlet property="avatarImageViewWidth" destination="lSI-3h-W6R" id="UkV-uW-e1G"/>
+                <outlet property="avatarImgeViewHeight" destination="yeR-be-n20" id="aft-fC-dK9"/>
+                <outlet property="descLabel" destination="P8K-T0-SId" id="iwV-8b-RHu"/>
+                <outlet property="descLabelRight" destination="EFe-hx-MVi" id="WGv-92-3P0"/>
+                <outlet property="descLabelTop" destination="4NT-xi-gB8" id="bA6-JH-Etb"/>
+                <outlet property="disturbingBtnLeft" destination="Wfq-ij-G9m" id="6SO-nh-wrl"/>
+                <outlet property="disturbingButton" destination="mUB-io-JTq" id="WXJ-eZ-cUp"/>
+                <outlet property="groupLabelLeft" destination="AQV-2h-aEU" id="ErR-vX-eEj"/>
+                <outlet property="groupLabelTop" destination="iAK-dV-CCJ" id="OWn-UV-yxd"/>
+                <outlet property="groupOwnerLabel" destination="LnE-mQ-lSP" id="sxu-H3-yXE"/>
+                <outlet property="nameLabel" destination="4Um-3B-3fN" id="tdW-a5-4Qq"/>
+                <outlet property="nameLabelLeft" destination="nxQ-Bz-Wlu" id="sKv-e7-IIo"/>
+                <outlet property="nameLabelTop" destination="7D0-qj-9Hb" id="S5x-p2-AVb"/>
+            </connections>
+            <point key="canvasLocation" x="128" y="-30"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="message_volume-off" width="12" height="12"/>
+        <image name="user_unregister" width="150" height="150"/>
+    </resources>
+</document>

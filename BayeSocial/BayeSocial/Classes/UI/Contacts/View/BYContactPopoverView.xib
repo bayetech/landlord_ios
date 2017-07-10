@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BYContactPopoverView" customModule="BayeStyle" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="by_contact_popover" translatesAutoresizingMaskIntoConstraints="NO" id="X3j-zO-0uw">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="138" id="13h-FY-vRw"/>
+                        <constraint firstAttribute="height" constant="100" id="JYb-b4-QSQ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="by_contact_popoverTop" translatesAutoresizingMaskIntoConstraints="NO" id="gRS-xI-bCg"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoE-G9-UdL" customClass="BKAdjustButton" customModule="BayeStyle" customModuleProvider="target">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="OpU-EI-EJF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="创建部落" image="contact_creatgroupchat"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0n-V1-oXD" customClass="BKAdjustButton" customModule="BayeStyle" customModuleProvider="target">
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="添加朋友" image="Contact_Add Friend"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="I0n-V1-oXD" firstAttribute="leading" secondItem="IoE-G9-UdL" secondAttribute="leading" id="1fr-W9-j4v"/>
+                <constraint firstItem="X3j-zO-0uw" firstAttribute="top" secondItem="gRS-xI-bCg" secondAttribute="bottom" constant="-1" id="Iyj-He-dzQ"/>
+                <constraint firstItem="IoE-G9-UdL" firstAttribute="trailing" secondItem="X3j-zO-0uw" secondAttribute="trailing" id="K7a-Ef-czz"/>
+                <constraint firstAttribute="trailing" secondItem="X3j-zO-0uw" secondAttribute="trailing" constant="20" id="TAy-Ik-M0j"/>
+                <constraint firstItem="IoE-G9-UdL" firstAttribute="leading" secondItem="X3j-zO-0uw" secondAttribute="leading" id="UOD-HY-rfL"/>
+                <constraint firstAttribute="trailing" secondItem="gRS-xI-bCg" secondAttribute="trailing" constant="34" id="bba-uL-v7k"/>
+                <constraint firstItem="I0n-V1-oXD" firstAttribute="trailing" secondItem="IoE-G9-UdL" secondAttribute="trailing" id="ftC-4c-4Np"/>
+                <constraint firstItem="IoE-G9-UdL" firstAttribute="top" secondItem="X3j-zO-0uw" secondAttribute="top" id="lRE-TH-ye5"/>
+                <constraint firstItem="I0n-V1-oXD" firstAttribute="height" secondItem="IoE-G9-UdL" secondAttribute="height" id="qJi-6q-Imq"/>
+                <constraint firstItem="I0n-V1-oXD" firstAttribute="top" secondItem="IoE-G9-UdL" secondAttribute="bottom" id="qN5-xr-bzw"/>
+                <constraint firstItem="X3j-zO-0uw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="91" id="u69-gD-GQj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addFriendBtn" destination="I0n-V1-oXD" id="yZb-t8-zFC"/>
+                <outlet property="creatGroupBtn" destination="IoE-G9-UdL" id="QJR-Sc-552"/>
+                <outlet property="popoverTopViewRight" destination="bba-uL-v7k" id="Q9C-nY-tBl"/>
+                <outlet property="popoverView" destination="X3j-zO-0uw" id="Bna-hG-fvT"/>
+                <outlet property="popoverViewHeight" destination="JYb-b4-QSQ" id="UDv-eR-AnF"/>
+                <outlet property="popoverViewRight" destination="TAy-Ik-M0j" id="6hd-VB-QJM"/>
+                <outlet property="popoverViewTop" destination="u69-gD-GQj" id="wNI-uQ-cwX"/>
+                <outlet property="popoverViewWidth" destination="13h-FY-vRw" id="gRL-mK-vp9"/>
+                <outletCollection property="buttonArray" destination="IoE-G9-UdL" collectionClass="NSMutableArray" id="XbT-J2-jQC"/>
+                <outletCollection property="buttonArray" destination="I0n-V1-oXD" collectionClass="NSMutableArray" id="gh2-kf-ldm"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="-42"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Contact_Add Friend" width="40" height="30"/>
+        <image name="by_contact_popover" width="138" height="133"/>
+        <image name="by_contact_popoverTop" width="11" height="6"/>
+        <image name="contact_creatgroupchat" width="36" height="32"/>
+    </resources>
+</document>
