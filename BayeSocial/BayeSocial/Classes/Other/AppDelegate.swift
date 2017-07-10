@@ -134,39 +134,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     /// 初始化 ShareSDK
     func initShareSDK() {
 
-        let platforms : [SSDKPlatformType] = [.typeWechat]
-        ShareSDK.registerActivePlatforms(platforms, onImport: { (type) in
+         let wechatPlatform = SSDKPlatformType.typeWechat.rawValue
+         let platforms  = [NSNumber(value: wechatPlatform)]
+        ShareSDK.registerActivePlatforms(platforms, onImport: { (platform) in
+            switch platform {
+            case  .typeWechat:
+                ShareSDKConnector.connectWeChat(WXApi.self)
+                break
+            default :
+                break
+            }
 
-
-        }) { (type, dict) in
-
-
+        }) { (platform, appInfo) in
+            switch platform {
+            case SSDKPlatformType.typeWechat:
+                appInfo?.ssdkSetupWeChat(byAppId: AppID, appSecret: APP_SECRET)
+                break
+            default :
+                break
+            }
         }
-        
-//        ShareSDK.registerApp("18670a4f1e9e2", activePlatforms:  [
-//            SSDKPlatformType.typeWechat.rawValue,
-//            ], onImport: { (platform) in
-//                switch platform {
-//                case SSDKPlatformType.typeWechat:
-//                    ShareSDKConnector.connectWeChat(WXApi.self)
-//                    break
-//                default :
-//                    break
-//                }
-//
-//        }) { (platform, appInfo) in
-//
-//            switch platform {
-//            case SSDKPlatformType.typeWechat:
-//                appInfo?.ssdkSetupWeChat(byAppId: AppID, appSecret: APP_SECRET)
-//                break
-//            default :
-//
-//                break
-//            }
-//
-//        }
-    }
+
+
+   }
     
     /// 主页面
     func displayMainViewController() {

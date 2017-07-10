@@ -14,47 +14,47 @@ struct BKApiConfig {
      /// app APIHOST
      static var APIHOST : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://api-staging.bayekeji.com/v2/" : "https://api.bayekeji.com/v2/"
+            return "https://api.bayekeji.com/v2/"
         }
     }
     
     // 社区的 URL
     static var APIHubsHost : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/hub/t" : "https://wechat.bayekeji.com/hub/t"
+            return  "https://wechat.bayekeji.com/hub/t"
         }
     }
     
     // 社区个人中心URL
     static var APIHubsProfile : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/hubs/p" : "https://wechat.bayekeji.com/hubs/p"
+            return  "https://wechat.bayekeji.com/hubs/p"
         }
     }
     
     // 社区消息URL
     static var APIHubsMessage : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/hubs/m" : "https://wechat.bayekeji.com/hubs/m"
+            return "https://wechat.bayekeji.com/hubs/m"
         }
     }
     
     static var APIHubsActivetys : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/hub/p/" : "https://wechat.bayekeji.com/hub/p/"
+            return "https://wechat.bayekeji.com/hub/p/"
         }
     }
     
     static var APIStore : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/" : "https://wechat.bayekeji.com/"
+            return "https://wechat.bayekeji.com/"
         }
     }
     
     /// 充值巴金页面
     static var KRechargeCoin : String {
         get {
-            return BKApiConfig.isDebugMode() ? "https://wechat-staging.bayekeji.com/build_recharge_coin" : "https://wechat.bayekeji.com/build_recharge_coin"
+            return  "https://wechat.bayekeji.com/build_recharge_coin"
         }
     }
     

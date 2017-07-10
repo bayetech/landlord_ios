@@ -370,7 +370,7 @@
 		24876A071DFE7B2A0067BAFC /* BKNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNetworkManager.swift; sourceTree = "<group>"; };
 		24876A081DFE7B2A0067BAFC /* BKNetworkResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNetworkResult.swift; sourceTree = "<group>"; };
 		24876A091DFE7B2A0067BAFC /* BKNetworkUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNetworkUrls.swift; sourceTree = "<group>"; };
-		24876A0B1DFE7B2A0067BAFC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24876A0B1DFE7B2A0067BAFC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24876A0C1DFE7B2A0067BAFC /* Baye-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Baye-Bridging-Header.h"; sourceTree = "<group>"; };
 		24876A101DFE7B2A0067BAFC /* ye_qing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ye_qing.mp3; sourceTree = "<group>"; };
 		24876A131DFE7B2A0067BAFC /* BKMakeCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKMakeCallViewController.swift; sourceTree = "<group>"; };
