@@ -1,0 +1,26 @@
+platform :ios, ‘9.0’
+use_frameworks!
+
+target ‘BayeSocial’ do
+    
+pod 'ShareSDK3'
+pod 'MOBFoundation'
+pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+pod 'AliyunOSSiOS', '~> 2.6.0'
+pod 'HyphenateLite'
+pod 'WebViewJavascriptBridge', '~> 5.0.7'
+pod 'Alamofire', '~> 4.4.0'
+pod 'SwiftyJSON', '~> 3.1.4'
+pod 'IQKeyboardManagerSwift'
+pod 'Kingfisher', '~> 3.4.0'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+pod 'SnapKit', '~> 3.2.0'
+pod 'PKHUD', '~> 4.2.0'
+pod 'MBProgressHUD', '~> 1.0.0'
+pod 'HandyJSON'
+pod 'Realm'
+pod 'SDWebImage', '~> 4.0.0'
+pod 'CYPhotosKit', '~> 2.6.0'
+
+end
+

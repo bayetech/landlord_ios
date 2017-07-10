@@ -1,0 +1,81 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AliyunOSSiOS (2.6.0)
+  - CYPhotosKit (2.6.0)
+  - HandyJSON (1.7.1)
+  - HyphenateLite (3.3.2)
+  - IQKeyboardManagerSwift (4.0.10)
+  - Kingfisher (3.4.0)
+  - MBProgressHUD (1.0.0)
+  - MOBFoundation (3.0.0)
+  - PKHUD (4.2.3)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - ShareSDK3 (4.0.0.1):
+    - MOBFoundation
+    - ShareSDK3/ShareSDK (= 4.0.0.1)
+  - ShareSDK3/ShareSDK (4.0.0.1):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.0.1):
+    - MOBFoundation
+  - SnapKit (3.2.0)
+  - Spring (1.0.3)
+  - SwiftyJSON (3.1.4)
+  - WebViewJavascriptBridge (5.0.9)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4.0)
+  - AliyunOSSiOS (~> 2.6.0)
+  - CYPhotosKit (~> 2.6.0)
+  - HandyJSON
+  - HyphenateLite
+  - IQKeyboardManagerSwift
+  - Kingfisher (~> 3.4.0)
+  - MBProgressHUD (~> 1.0.0)
+  - MOBFoundation
+  - PKHUD (~> 4.2.0)
+  - Realm
+  - SDWebImage (~> 4.0.0)
+  - ShareSDK3
+  - ShareSDK3/ShareSDKPlatforms/WeChat
+  - SnapKit (~> 3.2.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftyJSON (~> 3.1.4)
+  - WebViewJavascriptBridge (~> 5.0.7)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift3
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AliyunOSSiOS: 058b038cc82000dadb8f8e3893a97243124f2898
+  CYPhotosKit: d72aa7a2c98e2ed437464db3a26e5b562d965a1d
+  HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
+  HyphenateLite: 54ffda162deec2cedf156185a707b86678ae914a
+  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
+  Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MOBFoundation: e6572a62983a44fa048c4038842ade1494c10059
+  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  ShareSDK3: e0465c9ffdf806ab97c27f4397fd7deca600ede9
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  WebViewJavascriptBridge: a4390df79bf622fc068dd035c8b5f67590c0ba05
+
+PODFILE CHECKSUM: 22ac52c5b1aa158ddeaff36e0fd8b76fcd020b97
+
+COCOAPODS: 1.2.1

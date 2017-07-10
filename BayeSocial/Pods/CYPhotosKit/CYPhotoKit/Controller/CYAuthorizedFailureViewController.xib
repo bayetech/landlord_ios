@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYAuthorizedFailureViewController" customModule="CYPhotosKit" customModuleProvider="target">
+            <connections>
+                <outlet property="lockImageView" destination="BhG-qg-lbg" id="pXn-MT-D7V"/>
+                <outlet property="settingBtn" destination="mfh-HC-fnc" id="9bI-VO-BCa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-qg-lbg">
+                    <rect key="frame" x="140" y="100" width="95" height="126"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="95" id="UvE-Xg-CiQ"/>
+                        <constraint firstAttribute="height" constant="126" id="k6v-Mj-zSF"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此应用没有权限访问你的照片或视频" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWX-fR-yMm">
+                    <rect key="frame" x="0.0" y="256" width="375" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.55686274509803924" green="0.56862745098039214" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在&quot;设置-隐私-照片&quot;中开启后即可查看" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiu-3u-h8y">
+                    <rect key="frame" x="0.0" y="277" width="375" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.55686274509803924" green="0.56862745098039214" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-HC-fnc">
+                    <rect key="frame" x="205.5" y="303" width="58" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="前往设置">
+                        <color key="titleColor" red="0.0" green="0.76078431372549016" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="settingButtonClick:" destination="-1" eventType="touchUpInside" id="jea-w9-JGd"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BhG-qg-lbg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="1OG-HB-HMD"/>
+                <constraint firstItem="DWX-fR-yMm" firstAttribute="top" secondItem="BhG-qg-lbg" secondAttribute="bottom" constant="30" id="65f-nP-Y4x"/>
+                <constraint firstAttribute="trailing" secondItem="DWX-fR-yMm" secondAttribute="trailing" id="Fjz-XN-ERI"/>
+                <constraint firstAttribute="trailing" secondItem="xiu-3u-h8y" secondAttribute="trailing" id="Pky-SB-y2b"/>
+                <constraint firstItem="mfh-HC-fnc" firstAttribute="top" secondItem="xiu-3u-h8y" secondAttribute="bottom" constant="10" id="STL-fG-ETW"/>
+                <constraint firstItem="BhG-qg-lbg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WKc-oo-VTA"/>
+                <constraint firstItem="mfh-HC-fnc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.25" id="eSd-f0-V2z"/>
+                <constraint firstItem="xiu-3u-h8y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gzj-Ho-tzc"/>
+                <constraint firstItem="DWX-fR-yMm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h4h-DN-ea3"/>
+                <constraint firstItem="xiu-3u-h8y" firstAttribute="top" secondItem="DWX-fR-yMm" secondAttribute="bottom" constant="3" id="rax-de-cBM"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
