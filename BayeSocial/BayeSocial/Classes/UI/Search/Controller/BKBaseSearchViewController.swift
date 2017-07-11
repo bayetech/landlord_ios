@@ -130,7 +130,7 @@ class BKBaseSearchViewController : BKBaseViewController {
     }
     
     /// 返回按钮
-    func backAction() {
+    @objc func backAction() {
         self.textField.resignFirstResponder()
         let _ = self.navigationController?.popViewController(animated: false)
     }

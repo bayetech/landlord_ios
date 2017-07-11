@@ -37,7 +37,7 @@ class RegiserFullUserInfoViewController: UIViewController {
     }
     
     /// 姓名输入框内容发送了改变
-    func textDidChange(_ textField : UITextField) {
+    @objc func textDidChange(_ textField : UITextField) {
         var text = textField.text
         if (text?.length)! > 6 {
             text = text?.subString(to: 6)
@@ -46,7 +46,7 @@ class RegiserFullUserInfoViewController: UIViewController {
     }
     
     /// 退出键盘
-    func hiddenKeyboard() {
+    @objc func hiddenKeyboard() {
         for textField in textFields {
             textField.resignFirstResponder()
         }
@@ -80,7 +80,7 @@ class RegiserFullUserInfoViewController: UIViewController {
         
         var lastLineView : UIView?
         var placeHolders : [String]                     = ["使用真实姓名方便好友找到你","请选择性别","请输入职位","请选择行业职能"]
-        let placeholderAttribut                         = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(15.0)]
+        let placeholderAttribut                         = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(15.0)]
         // 创建四个输入框
         for i in 0..<4 {
             
@@ -181,12 +181,12 @@ class RegiserFullUserInfoViewController: UIViewController {
         
     }
     
-    func backClick() {
+    @objc func backClick() {
        let _ =  self.navigationController?.popToRootViewController(animated: true)
     }
     
     /// 完成按钮点击事件
-    func finishedButtonClick(_ btn : UIButton) {
+    @objc func finishedButtonClick(_ btn : UIButton) {
         
         let userName = self.textFields[0].text
         if (userName?.isEmpty)! {
@@ -258,7 +258,7 @@ class RegiserFullUserInfoViewController: UIViewController {
     }
 
     /// 选择用户性别
-    func selectUserSex() {
+    @objc func selectUserSex() {
         
         hiddenKeyboard()
         
@@ -273,7 +273,7 @@ class RegiserFullUserInfoViewController: UIViewController {
     }
     
     /// 选择用户的行业分类
-    func selectUserIndustry() {
+    @objc func selectUserIndustry() {
      
         hiddenKeyboard()
         
@@ -344,7 +344,7 @@ extension RegiserFullUserInfoViewController : CYPhotoNavigationControllerDelegat
     }
     
     /// 上传头像
-    func uploadImage() {
+    @objc func uploadImage() {
      
         let _ = YepAlertKit.showActionSheet(in: self, title: nil, message: nil, titles: ["从相册选择","拍照"], cancelTitle: "取消", destructive: nil) {[weak self] (index) in
             if index == 1 {

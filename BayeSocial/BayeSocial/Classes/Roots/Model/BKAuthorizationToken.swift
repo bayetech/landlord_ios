@@ -17,11 +17,11 @@ class BKAuthorizationToken: RLMObject {
 //        print(authorization)
         return authorization ?? BKAuthorizationToken()
     }
-    dynamic var session_id : String?
-    dynamic var easemob_username : String = ""
-    dynamic var easemob_password : String = ""
-    dynamic var expire_at : Int = 0
-    dynamic var userAccount : String = ""
+    @objc dynamic var session_id : String?
+    @objc dynamic var easemob_username : String = ""
+    @objc dynamic var easemob_password : String = ""
+    @objc dynamic var expire_at : Int = 0
+    @objc dynamic var userAccount : String = ""
     open override class func primaryKey() -> String? {
         return "userAccount"
     }

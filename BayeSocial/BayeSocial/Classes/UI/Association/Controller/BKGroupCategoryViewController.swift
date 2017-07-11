@@ -10,9 +10,9 @@ import UIKit
 import SwiftyJSON
 
 class BKGroupCategory : RLMObject {
-    dynamic var name : String?
-    dynamic var uid :String?
-    dynamic var avatar : String?
+    @objc dynamic var name : String?
+    @objc dynamic var uid :String?
+    @objc dynamic var avatar : String?
     override class func primaryKey() -> String? {
         return "uid"
     }

@@ -57,7 +57,7 @@ class BKAddFriendReqeustViewController: UIViewController {
     }
     
     // 联系人列表发生改变的时候
-    func contactDidChange(_ noti:Notification) {
+    @objc func contactDidChange(_ noti:Notification) {
         
         if let custome_uid = noti.object as? String {
             BKRealmManager.shared().deleteContactReqeust(custome_uid)
@@ -67,7 +67,7 @@ class BKAddFriendReqeustViewController: UIViewController {
     }
     
     /// 添加好友
-    func addFriendAction() {
+    @objc func addFriendAction() {
         
         let addNewFriendViewController = BKAddFriendsViewController()
         self.navigationController?.pushViewController(addNewFriendViewController, animated: true)

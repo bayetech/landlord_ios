@@ -120,7 +120,7 @@ class BKUserDetailHeadView: UIView {
     }
     
     /// 点击了头像
-    func avatarImageViewClick() {
+    @objc func avatarImageViewClick() {
         delegate?.userDetailHeadViewDidSelectAvatarImageView?(self)
     }
     

@@ -114,7 +114,7 @@ class BKConversationModel : NSObject {
         
         self.nameString                     = fromName
         self.message                        = self.lastMessageTitle(by: self.conversation!)
-        self.name                           = NSAttributedString(string: fromName, attributes: [NSFontAttributeName : CYLayoutConstraintFont(16.0),NSForegroundColorAttributeName : color])
+        self.name                           = NSAttributedString(string: fromName, attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(16.0),NSAttributedStringKey.foregroundColor : color])
         
     }
     
@@ -162,13 +162,14 @@ class BKConversationModel : NSObject {
         
         var attributedString : NSAttributedString?
         let font : UIFont = CYLayoutConstraintFont(14.5)
-        let defaultAttributeds : [String : Any] = [NSFontAttributeName : font,NSForegroundColorAttributeName : UIColor.colorWithHexString("#777777")]
+        let defaultAttributeds : [NSAttributedStringKey : Any] = [ NSAttributedStringKey.font : font, NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#777777")]
+        
         if self.isChatGroupType {
             
             if self.isEmAtMe {
                 
                 let mutableString       = NSMutableAttributedString(string: "")
-                let atString            = NSAttributedString(string: "[有人@我] ", attributes: [NSForegroundColorAttributeName : UIColor.colorWithHexString("#CF5555"),NSFontAttributeName : font])
+                let atString            = NSAttributedString(string: "[有人@我] ", attributes: [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#CF5555"),NSAttributedStringKey.font : font])
                 mutableString.append(atString)
                 
                 if self.messageFromUserInfo != nil {

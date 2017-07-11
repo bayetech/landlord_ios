@@ -82,7 +82,7 @@ class BKMakeCallViewController: BKBaseViewController {
     }
     
     /// 发送按钮
-    func sendMsg() {
+    @objc func sendMsg() {
     
         view.endEditing(true)
         delegate?.makeCall(with: (self.textView.text)!)

@@ -88,13 +88,10 @@ class BKWebBridge: NSObject {
     public func runJavaScript(_ msg:String,data:JavaScriptResource?,completionHandler : BKWebViewRunJSHandele?) {
         
         let javaScript  : String        = msg
-        NJLog(javaScript)
-        
         self.webView?.evaluateJavaScript(javaScript, completionHandler: { (result, error) in
             completionHandler?(BKWebViewBridgeResult(result ,error: error as? NSError))
         })
-        
-        
+
     }
     
 }

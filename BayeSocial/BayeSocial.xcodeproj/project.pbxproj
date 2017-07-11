@@ -59,11 +59,6 @@
 		24876C7B1DFE7B2A0067BAFC /* BKAliCloudUploadConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A251DFE7B2A0067BAFC /* BKAliCloudUploadConfig.swift */; };
 		24876C7C1DFE7B2A0067BAFC /* BKAliCloudUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A261DFE7B2A0067BAFC /* BKAliCloudUploadManager.swift */; };
 		24876C7D1DFE7B2A0067BAFC /* BKAliCloudUploadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A271DFE7B2A0067BAFC /* BKAliCloudUploadOperation.swift */; };
-		24876C7E1DFE7B2A0067BAFC /* BKScanQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 24876A2A1DFE7B2A0067BAFC /* BKScanQRCode.bundle */; };
-		24876C7F1DFE7B2A0067BAFC /* BKDetectorQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A2C1DFE7B2A0067BAFC /* BKDetectorQRCode.swift */; };
-		24876C801DFE7B2A0067BAFC /* BKGenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A2D1DFE7B2A0067BAFC /* BKGenerateQRCode.swift */; };
-		24876C811DFE7B2A0067BAFC /* BKScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24876A2F1DFE7B2A0067BAFC /* BKScanQRCodeViewController.swift */; };
-		24876C821DFE7B2A0067BAFC /* BKScanQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24876A301DFE7B2A0067BAFC /* BKScanQRCodeViewController.xib */; };
 		24876C831DFE7B2A0067BAFC /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24876A321DFE7B2A0067BAFC /* Address.plist */; };
 		24876C991DFE7B2A0067BAFC /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 24876A691DFE7B2A0067BAFC /* EMAudioPlayerUtil.m */; };
 		24876C9A1DFE7B2A0067BAFC /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 24876A6B1DFE7B2A0067BAFC /* EMAudioRecorderUtil.m */; };
@@ -383,11 +378,6 @@
 		24876A251DFE7B2A0067BAFC /* BKAliCloudUploadConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKAliCloudUploadConfig.swift; sourceTree = "<group>"; };
 		24876A261DFE7B2A0067BAFC /* BKAliCloudUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKAliCloudUploadManager.swift; sourceTree = "<group>"; };
 		24876A271DFE7B2A0067BAFC /* BKAliCloudUploadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKAliCloudUploadOperation.swift; sourceTree = "<group>"; };
-		24876A2A1DFE7B2A0067BAFC /* BKScanQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BKScanQRCode.bundle; sourceTree = "<group>"; };
-		24876A2C1DFE7B2A0067BAFC /* BKDetectorQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKDetectorQRCode.swift; sourceTree = "<group>"; };
-		24876A2D1DFE7B2A0067BAFC /* BKGenerateQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKGenerateQRCode.swift; sourceTree = "<group>"; };
-		24876A2F1DFE7B2A0067BAFC /* BKScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKScanQRCodeViewController.swift; sourceTree = "<group>"; };
-		24876A301DFE7B2A0067BAFC /* BKScanQRCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BKScanQRCodeViewController.xib; sourceTree = "<group>"; };
 		24876A321DFE7B2A0067BAFC /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
 		24876A5E1DFE7B2A0067BAFC /* EaseUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EaseUI-Prefix.pch"; sourceTree = "<group>"; };
 		24876A5F1DFE7B2A0067BAFC /* EaseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseUI.h; sourceTree = "<group>"; };
@@ -621,7 +611,7 @@
 		24876C1B1DFE7B2A0067BAFC /* RegisertPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisertPasswordViewController.swift; sourceTree = "<group>"; };
 		24876C201DFE7B2A0067BAFC /* BKChatSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKChatSettingViewController.swift; sourceTree = "<group>"; };
 		24876C211DFE7B2A0067BAFC /* BKMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKMessageViewController.swift; sourceTree = "<group>"; };
-		24876C231DFE7B2A0067BAFC /* BKConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKConversationModel.swift; sourceTree = "<group>"; };
+		24876C231DFE7B2A0067BAFC /* BKConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKConversationModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		24876C251DFE7B2A0067BAFC /* BYMessageConversationViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYMessageConversationViewCell.swift; sourceTree = "<group>"; };
 		24876C261DFE7B2A0067BAFC /* BYMessageConversationViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BYMessageConversationViewCell.xib; sourceTree = "<group>"; };
 		24876C271DFE7B2A0067BAFC /* BYMessageHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BYMessageHeadView.swift; sourceTree = "<group>"; };
@@ -640,8 +630,8 @@
 		24876C451DFE7B2A0067BAFC /* BKFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKFeedbackViewController.swift; sourceTree = "<group>"; };
 		24876C461DFE7B2A0067BAFC /* BKNotificationsViewControlller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNotificationsViewControlller.swift; sourceTree = "<group>"; };
 		24876C471DFE7B2A0067BAFC /* BKSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKSettingViewController.swift; sourceTree = "<group>"; };
-		24876C481DFE7B2A0067BAFC /* BKUpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKUpdatePasswordViewController.swift; sourceTree = "<group>"; };
-		24876C491DFE7B2A0067BAFC /* BKUserAccountModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKUserAccountModule.swift; sourceTree = "<group>"; };
+		24876C481DFE7B2A0067BAFC /* BKUpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKUpdatePasswordViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		24876C491DFE7B2A0067BAFC /* BKUserAccountModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKUserAccountModule.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		24876C4A1DFE7B2A0067BAFC /* ModifyUserinfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyUserinfoViewController.swift; sourceTree = "<group>"; };
 		24876D7B1DFE7CB00067BAFC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		24876D7D1DFE7CDC0067BAFC /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -1093,7 +1083,6 @@
 				240A7C581E123D8C00BE1562 /* CMBKeyboard */,
 				241087781E0A526F0037431C /* Payment */,
 				24876A241DFE7B2A0067BAFC /* AliCloudQNUploadManager */,
-				24876A291DFE7B2A0067BAFC /* BKQRCodeFramework */,
 				24876A311DFE7B2A0067BAFC /* CityPickerView */,
 				24876A5D1DFE7B2A0067BAFC /* EaseUI */,
 				24876B4D1DFE7B2A0067BAFC /* EaseUIResource */,
@@ -1111,34 +1100,6 @@
 				24876A271DFE7B2A0067BAFC /* BKAliCloudUploadOperation.swift */,
 			);
 			path = AliCloudQNUploadManager;
-			sourceTree = "<group>";
-		};
-		24876A291DFE7B2A0067BAFC /* BKQRCodeFramework */ = {
-			isa = PBXGroup;
-			children = (
-				24876A2A1DFE7B2A0067BAFC /* BKScanQRCode.bundle */,
-				24876A2B1DFE7B2A0067BAFC /* Model */,
-				24876A2E1DFE7B2A0067BAFC /* ScanViewController */,
-			);
-			path = BKQRCodeFramework;
-			sourceTree = "<group>";
-		};
-		24876A2B1DFE7B2A0067BAFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				24876A2C1DFE7B2A0067BAFC /* BKDetectorQRCode.swift */,
-				24876A2D1DFE7B2A0067BAFC /* BKGenerateQRCode.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		24876A2E1DFE7B2A0067BAFC /* ScanViewController */ = {
-			isa = PBXGroup;
-			children = (
-				24876A2F1DFE7B2A0067BAFC /* BKScanQRCodeViewController.swift */,
-				24876A301DFE7B2A0067BAFC /* BKScanQRCodeViewController.xib */,
-			);
-			path = ScanViewController;
 			sourceTree = "<group>";
 		};
 		24876A311DFE7B2A0067BAFC /* CityPickerView */ = {
@@ -2150,6 +2111,7 @@
 				TargetAttributes = {
 					248769A81DFE7AB70067BAFC = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
@@ -2163,12 +2125,14 @@
 					248769BC1DFE7AB70067BAFC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XD3776868Q;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 248769A81DFE7AB70067BAFC;
 					};
 					248769C71DFE7AB70067BAFC = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XD3776868Q;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 248769A81DFE7AB70067BAFC;
 					};
@@ -2209,7 +2173,6 @@
 				248769B41DFE7AB70067BAFC /* Assets.xcassets in Resources */,
 				24876D571DFE7B2A0067BAFC /* BYMessageConversationViewCell.xib in Resources */,
 				24876D591DFE7B2A0067BAFC /* BYMessageHeadView.xib in Resources */,
-				24876C821DFE7B2A0067BAFC /* BKScanQRCodeViewController.xib in Resources */,
 				24876D401DFE7B2A0067BAFC /* CYCollectionViewCell.xib in Resources */,
 				24876C831DFE7B2A0067BAFC /* Address.plist in Resources */,
 				24C2EB5F1E1610D6004D7226 /* sound_redpacket_open.wav in Resources */,
@@ -2221,7 +2184,6 @@
 				24DA1CDE1E0B6A28001D56A0 /* Localizable.strings in Resources */,
 				24876D301DFE7B2A0067BAFC /* BKGroupIntroducetViewCell.xib in Resources */,
 				240A7C721E1263F400BE1562 /* AlipaySDK.bundle in Resources */,
-				24876C7E1DFE7B2A0067BAFC /* BKScanQRCode.bundle in Resources */,
 				24876D3C1DFE7B2A0067BAFC /* BKComposeViewController.xib in Resources */,
 				24876D461DFE7B2A0067BAFC /* BYContactHeadView.xib in Resources */,
 				24876D4A1DFE7B2A0067BAFC /* BYContactTableViewCell.xib in Resources */,
@@ -2302,7 +2264,6 @@
 			files = (
 				24876C531DFE7B2A0067BAFC /* BKNavigaitonController.swift in Sources */,
 				24876C9A1DFE7B2A0067BAFC /* EMAudioRecorderUtil.m in Sources */,
-				24876C801DFE7B2A0067BAFC /* BKGenerateQRCode.swift in Sources */,
 				240A7C771E12641200BE1562 /* BKPayMethod.swift in Sources */,
 				24876CC91DFE7B2A0067BAFC /* PSTGridLayoutRow.m in Sources */,
 				2D5136FE1E515754008873D5 /* BKWebViewShareView.swift in Sources */,
@@ -2384,7 +2345,6 @@
 				24876C751DFE7B2A0067BAFC /* BKPrivacyOptions.swift in Sources */,
 				24876D491DFE7B2A0067BAFC /* BYContactTableViewCell.swift in Sources */,
 				24876CDF1DFE7B2A0067BAFC /* EaseRefreshTableViewController.m in Sources */,
-				24876C811DFE7B2A0067BAFC /* BKScanQRCodeViewController.swift in Sources */,
 				24876D731DFE7B2A0067BAFC /* BKUserAccountModule.swift in Sources */,
 				24876C511DFE7B2A0067BAFC /* BKBaseViewController.swift in Sources */,
 				24876CC21DFE7B2A0067BAFC /* PSTCollectionViewData.m in Sources */,
@@ -2393,7 +2353,6 @@
 				24876D321DFE7B2A0067BAFC /* BKInputViewController.swift in Sources */,
 				24876CED1DFE7B2A0067BAFC /* EaseBubbleView+Voice.m in Sources */,
 				24876D5F1DFE7B2A0067BAFC /* BKGroupSettingViewController.swift in Sources */,
-				24876C7F1DFE7B2A0067BAFC /* BKDetectorQRCode.swift in Sources */,
 				24876CD21DFE7B2A0067BAFC /* NSString+Valid.m in Sources */,
 				24876C5F1DFE7B2A0067BAFC /* UIViewExtension.swift in Sources */,
 				24876C991DFE7B2A0067BAFC /* EMAudioPlayerUtil.m in Sources */,
@@ -2688,7 +2647,8 @@
 				PROVISIONING_PROFILE = "0eff3551-dacd-4670-ba29-032fe666df9a";
 				PROVISIONING_PROFILE_SPECIFIER = iOS_developer;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BayeSocial/Classes/Other/Baye-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2728,7 +2688,8 @@
 				PROVISIONING_PROFILE = "b886f044-3f4a-4b0a-a126-b287d5aee0e0";
 				PROVISIONING_PROFILE_SPECIFIER = iOS_production_hoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BayeSocial/Classes/Other/Baye-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -2743,7 +2704,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.photosLibrary.lib.BayeSocialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayeSocial.app/BayeSocial";
 			};
 			name = Debug;
@@ -2758,7 +2720,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.photosLibrary.lib.BayeSocialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayeSocial.app/BayeSocial";
 			};
 			name = Release;
@@ -2772,7 +2735,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.photosLibrary.lib.BayeSocialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = BayeSocial;
 			};
 			name = Debug;
@@ -2786,7 +2750,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.photosLibrary.lib.BayeSocialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = BayeSocial;
 			};
 			name = Release;

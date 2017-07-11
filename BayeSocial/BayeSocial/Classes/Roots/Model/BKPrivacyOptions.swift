@@ -20,18 +20,18 @@ class BKPrivacyOptions: RLMObject {
     }
 
     /// 提醒类型 声音 振动 关闭
-    dynamic var typeString : String     = "声音和振动" 
+    @objc dynamic var typeString : String     = "声音和振动" 
     
     /// 消息免打扰类型
-    dynamic var noDisturbStatus : Int   = 2
+    @objc dynamic var noDisturbStatus : Int   = 2
     
     /// 手机号码隐私设置
-    dynamic var mobile_visible_scope : String           = "所有人可见手机号"
+    @objc dynamic var mobile_visible_scope : String           = "所有人可见手机号"
     
     /// 名片隐私设置
-    dynamic var namecard_visible_scope : String         = "所有人可见我的资料"
+    @objc dynamic var namecard_visible_scope : String         = "所有人可见我的资料"
     /// 用户名 标记这是哪个用户的设置信息
-    dynamic var userAccount : String?
+    @objc dynamic var userAccount : String?
   
     override init() {
         super.init()

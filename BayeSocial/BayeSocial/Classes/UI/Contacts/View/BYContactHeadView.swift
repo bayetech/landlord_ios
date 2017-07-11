@@ -113,11 +113,11 @@ class BYContactHeadView: UIView {
     }
     
     /// 点击了新的请求
-    func didSelectNewReqeustView(_ tap : UITapGestureRecognizer) {
+    @objc func didSelectNewReqeustView(_ tap : UITapGestureRecognizer) {
         delegate?.by_ContactHeadViewDidSelectNewReqeustView!(self)
     }
     /// 点击了我的社群
-    func didSelectMineGroupView(_ tap : UITapGestureRecognizer) {
+    @objc func didSelectMineGroupView(_ tap : UITapGestureRecognizer) {
         delegate?.by_ContactHeadViewDidSelectMyGroupView!(self)
     }
     

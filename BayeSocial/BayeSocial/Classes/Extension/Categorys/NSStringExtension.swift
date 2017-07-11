@@ -110,7 +110,7 @@ extension String {
     }
     
     func getTextSize(_ font : UIFont , restrictWidth width : CGFloat) -> CGSize {
-        let dict            = [NSFontAttributeName : font]
+        let dict            = [NSAttributedStringKey.font : font]
         let string          = self as NSString
         let size            = string.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: dict, context: nil).size
         return size

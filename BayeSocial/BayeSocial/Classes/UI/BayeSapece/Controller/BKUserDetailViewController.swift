@@ -289,7 +289,7 @@ extension BKUserDetailViewController {
     }
     
     /// 发布动态
-    func sendActivity() {
+    @objc func sendActivity() {
         
         let  composeViewController                 = BKComposeViewController()
         composeViewController.delegate             = self
@@ -721,7 +721,7 @@ extension BKUserDetailViewController : UITableViewDataSource , UITableViewDelega
     }
     
     /// 用户群组列表
-    func userChatgroupList(_ btn :UIButton) {
+    @objc func userChatgroupList(_ btn :UIButton) {
         
         let chatGroups              = BKUserChatGroupsViewController()
         chatGroups.chatgroupArray   = self.groupArray
@@ -744,7 +744,7 @@ extension BKUserDetailViewController : UITableViewDataSource , UITableViewDelega
     }
     
     /// 点击了区的headVIew
-    func sectionHeadViewClick(_ tap : UITapGestureRecognizer) {
+    @objc func sectionHeadViewClick(_ tap : UITapGestureRecognizer) {
     
         // 查看人脉
         if tap.view?.tag == 1000 {
@@ -823,7 +823,7 @@ extension BKUserDetailViewController : BKUserDetailHeadViewDelegate {
 
 extension BKUserDetailViewController {
     
-    func sendMessage() {
+    @objc func sendMessage() {
         
         if isMyFriend {
             

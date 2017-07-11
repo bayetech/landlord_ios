@@ -10,8 +10,8 @@ import UIKit
 
 class BKBlackListModel: RLMObject {
 
-    dynamic var userAccount : String?
-    dynamic var blackLists = RLMArray(objectClassName: BKCustomersContact.className())
+    @objc dynamic var userAccount : String?
+    @objc dynamic var blackLists = RLMArray(objectClassName: BKCustomersContact.className())
     open override class func primaryKey() -> String? {
         return "userAccount"
     }

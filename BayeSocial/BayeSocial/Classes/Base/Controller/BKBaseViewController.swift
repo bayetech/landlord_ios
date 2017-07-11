@@ -30,7 +30,7 @@ class BKBaseViewController: UIViewController {
     }
     
     var gestureRecognizerShouldBegin : Bool             = true
-    public func popToBack() {
+    @objc public func popToBack() {
         let _ = self.navigationController?.popViewController(animated: true)
     }
     

@@ -30,7 +30,7 @@ class RegisertPasswordViewController: BKBaseLoginModuleViewController {
         // 手机号码输入框
         self.passwordTextField                                  = UITextField()
         self.passwordTextField?.isSecureTextEntry               = true
-        let placeholderAttribut                                 = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(16.0)]
+        let placeholderAttribut                                 = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(16.0)]
         self.passwordTextField?.attributedPlaceholder           = NSAttributedString(string: "请输入密码", attributes:placeholderAttribut)
         self.passwordTextField?.clearButtonMode                 = .always
         self.passwordTextField?.textAlignment                   = .center
@@ -95,7 +95,7 @@ class RegisertPasswordViewController: BKBaseLoginModuleViewController {
     }
     
     /// 查看密码的按钮
-    func passwordSecureButtonClick(_ btn : UIButton) {
+    @objc func passwordSecureButtonClick(_ btn : UIButton) {
         
         btn.isSelected      = !btn.isSelected
         if btn.tag         == 100 {

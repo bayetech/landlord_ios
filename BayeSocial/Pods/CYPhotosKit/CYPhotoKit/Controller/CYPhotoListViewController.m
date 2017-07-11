@@ -150,7 +150,7 @@ static CGFloat const itemMarigin = 5.0f;
     
     __weak typeof(self)weakSelf = self;
     
-    void (^block) () = ^ {
+    void (^block) (void) = ^ {
         __strong typeof(weakSelf)strongSelf = weakSelf;
         for (int i=0; i<_fetchResult.count; i++) {
             NSString *key = [NSString stringWithFormat:@"%d",i];

@@ -11,8 +11,8 @@ import UIKit
 /// 环信群组
 class BKEaseMobGroup: RLMObject {
 
-    dynamic var groupId : String?
-    dynamic var userAccount : String?
+    @objc dynamic var groupId : String?
+    @objc dynamic var userAccount : String?
     open override class func primaryKey() -> String? {
         return "groupId"
     }
@@ -23,8 +23,8 @@ class BKEaseMobGroup: RLMObject {
 
 /// 存储环信联系人
 class BKEaseMobContact: RLMObject {
-    dynamic var userId : String?
-    dynamic var userAccount : String?
+    @objc dynamic var userId : String?
+    @objc dynamic var userAccount : String?
     open override class func primaryKey() -> String? {
         return "userId"
     }

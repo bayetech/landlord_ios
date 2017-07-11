@@ -97,7 +97,7 @@ class BKRemindModeViewController: BKBaseTableViewController {
     }
     
     /// 点击了开关
-    func changeValue(_ switchView : UISwitch) {
+    @objc func changeValue(_ switchView : UISwitch) {
         self.switchStatus["\(switchView.tag)"] = switchView.isOn
         
         let switchOneOpen   = self.switchStatus["0"] ?? false

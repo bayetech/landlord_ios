@@ -147,7 +147,7 @@ class BKPreparePacketView: UIView {
         
     }
     
-    func dismiss() {
+    @objc func dismiss() {
         
         UIView.animate(withDuration: 0.5, animations: {[weak self] () in
             self?.contentView.transform                  = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -162,14 +162,14 @@ class BKPreparePacketView: UIView {
     
     func setupCoin(_ count :Int) {
         
-        let attributedString                    = NSMutableAttributedString(string: "\(count)", attributes: [NSFontAttributeName : CYLayoutConstraintFont(36.0)])
-        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSFontAttributeName : CYLayoutConstraintFont(24.0)]))
+        let attributedString                    = NSMutableAttributedString(string: "\(count)", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(36.0)])
+        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(24.0)]))
         coinLabel.attributedText                = attributedString
         
     }
     
     /// 发送红包按钮
-    func sendButtonClick(_ btn : UIButton) {
+    @objc func sendButtonClick(_ btn : UIButton) {
         
         delegate?.sendPacketButtonClick?()
         

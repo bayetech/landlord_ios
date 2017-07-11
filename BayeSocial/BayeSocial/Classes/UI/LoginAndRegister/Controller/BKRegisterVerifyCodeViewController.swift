@@ -34,7 +34,7 @@ class BKRegisterVerifyCodeViewController: BKBaseLoginModuleViewController {
         
         // 手机号输入框
         self.verifyCodeTextField                                = UITextField()
-        let placeholderAttribut                                 = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(16.0)]
+        let placeholderAttribut                                 = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(16.0)]
         self.verifyCodeTextField?.attributedPlaceholder         = NSAttributedString(string: "请输入验证码", attributes:placeholderAttribut)
         self.verifyCodeTextField?.textAlignment                 = .left
         self.verifyCodeTextField?.borderStyle                   = .none
@@ -98,7 +98,7 @@ extension BKRegisterVerifyCodeViewController  {
     
     
     /// 获取短信验证码
-    func getVerifyCode(_ btn : UIButton) {
+    @objc func getVerifyCode(_ btn : UIButton) {
         
         btn.isSelected                          = true
         btn.isUserInteractionEnabled            = false
@@ -132,7 +132,7 @@ extension BKRegisterVerifyCodeViewController  {
     }
     
     /// 更新倒计时提示语
-    func updateTime() {
+    @objc func updateTime() {
         
         if self.timeOut <= 0 {
             self.invalidateTimer()

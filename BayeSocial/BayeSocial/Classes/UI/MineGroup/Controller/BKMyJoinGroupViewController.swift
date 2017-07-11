@@ -105,7 +105,7 @@ class BKMyJoinGroupViewController: BKBaseViewController {
     }
     
     /// 创建社群
-    func createGroup() {
+    @objc func createGroup() {
         
         let creatGroupViewController = BKCreateGroupViewController()
         self.navigationController?.pushViewController(creatGroupViewController, animated: true)

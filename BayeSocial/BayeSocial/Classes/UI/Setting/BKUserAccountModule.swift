@@ -72,7 +72,7 @@ class BKDispalayCurrentMobileViewController : BKBaseViewController {
     }
     
     /// 更换手机号码
-    func changeMobileClick() {
+    @objc func changeMobileClick() {
         let bindingViewController       = BKBindingMobileViewController()
         self.navigationController?.pushViewController(bindingViewController, animated: true)
     }
@@ -89,7 +89,7 @@ class BKBindingMobileViewController: BKBaseViewController {
     var sendVerifyCodeButton : UIButton?
     
     /// 姓名输入框内容发送了改变
-    func textDidChange(_ textField : UITextField) {
+    @objc func textDidChange(_ textField : UITextField) {
         let num = textField.tag == 100 ? 11 : 6
         var text = textField.text
         if (text?.length)! > num {
@@ -99,7 +99,7 @@ class BKBindingMobileViewController: BKBaseViewController {
     }
     
     /// 取消
-    func cancelClick() {
+    @objc func cancelClick() {
         
         let _ = YepAlertKit.showAlertView(in: self, title: nil, message: "你确定要取消本次绑定？", titles: nil, cancelTitle: "取消", destructive: "确定") {[weak self]  (index) in
             if index == 1000 {
@@ -119,7 +119,7 @@ class BKBindingMobileViewController: BKBaseViewController {
         ]
     
         self.automaticallyAdjustsScrollViewInsets   = true
-        let placeAttributes : [String : AnyObject]  = [NSFontAttributeName : CYLayoutConstraintFont(17.0),NSForegroundColorAttributeName : UIColor.colorWithHexString("#898989")]
+        let placeAttributes : [NSAttributedStringKey : Any]  = [NSAttributedStringKey.font : CYLayoutConstraintFont(17.0),NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#898989")]
         weak var lastLineView : UIView?
         for i in 0..<2 {
             
@@ -191,7 +191,7 @@ class BKBindingMobileViewController: BKBaseViewController {
     }
     
     /// 完成按钮点击事件
-    func finishedButtonClick() {
+    @objc func finishedButtonClick() {
         
         if !mobileVerify() {
             return
@@ -226,7 +226,7 @@ class BKBindingMobileViewController: BKBaseViewController {
     }
     
     /// 发送验证码
-    func sendVerifyCodeAction(_ btn : UIButton) {
+    @objc func sendVerifyCodeAction(_ btn : UIButton) {
         
         self.hiddenKeyboard()
         
@@ -315,7 +315,7 @@ extension BKBindingMobileViewController {
     }
     
     /// 更新倒计时提示语
-    func updateTime() {
+    @objc func updateTime() {
         
         if self.timeOut <= 0 {
             self.invalidateTimer()
@@ -428,8 +428,8 @@ class BKAccountViewController : BKBaseTableViewController {
             ["title" : "修改登录密码","subTitle" :""]
         ]
 
-        self.tableView.reloadData()
-        
+        tableView.reloadData()
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

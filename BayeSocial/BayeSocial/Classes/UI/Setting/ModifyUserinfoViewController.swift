@@ -9,29 +9,29 @@
 
 import UIKit
 @objc protocol UserinfoModifyDelegate : NSObjectProtocol {
-	@objc optional func updateSuccess(_ indexPath: IndexPath)
+    @objc optional func updateSuccess(_ indexPath: IndexPath)
     @objc optional func didFinishedExchangeInfo(_ text : String,indexPath : IndexPath)
 }
 
 /// 修改用户资料的输入框
 class ModifyUserinfoViewController: UIViewController {
-	
+    
     var contentStrLabel: UITextField? {
         didSet {
             contentStrLabel?.clearButtonMode = .always
         }
     }
     
-	var titleStr: String?
+    var titleStr: String?
     var indexPath : IndexPath?
-	var contentStr: String?
+    var contentStr: String?
     weak var delege: UserinfoModifyDelegate?
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         setup()
         
-	}
+    }
     
     private func setup() {
         
@@ -78,8 +78,8 @@ class ModifyUserinfoViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-	
-    func modifyCurrentItem(_ sender: UIBarButtonItem) {
+    
+    @objc func modifyCurrentItem(_ sender: UIBarButtonItem) {
         
         self.contentStrLabel?.resignFirstResponder()
         if self.contentStrLabel?.text?.length == 0 {

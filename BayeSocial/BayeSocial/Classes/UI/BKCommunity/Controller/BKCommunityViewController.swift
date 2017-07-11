@@ -108,7 +108,7 @@ class BKCommunityViewController: BKBaseWebViewController , UIScrollViewDelegate 
     
     
     /// 点击封面更换封面
-    func backgroundClick(_ tap : UITapGestureRecognizer)  {
+    @objc func backgroundClick(_ tap : UITapGestureRecognizer)  {
         
         let changeCoverViewController       = BKExchangeCoverViewController()
         changeCoverViewController.delegate  = self
@@ -148,7 +148,7 @@ class BKCommunityViewController: BKBaseWebViewController , UIScrollViewDelegate 
     }
 
     /// 查看社区消息
-    func clickRightBtn() {
+    @objc func clickRightBtn() {
         
         let  composeViewController                 = BKComposeViewController()
         let nav                                    = BKNavigaitonController(rootViewController: composeViewController)
@@ -179,7 +179,7 @@ class BKCommunityViewController: BKBaseWebViewController , UIScrollViewDelegate 
     /**
      是否显示 leftButtonItem
      */
-    func webViewBack() {
+    @objc func webViewBack() {
         
         guard self.wkWebView.canGoBack  else {
             let _ = self.navigationController?.popViewController(animated: true)

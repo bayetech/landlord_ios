@@ -85,12 +85,12 @@ class BKBaseLoginModuleViewController: UIViewController {
     }
     
     /// 下一步按钮
-    func nextStepClick(_ btn : UIButton) {
+    @objc func nextStepClick(_ btn : UIButton) {
         
     }
     
     /// 返回方法
-    func backAction(_ btn : UIButton) {
+    @objc func backAction(_ btn : UIButton) {
         
         let _ = self.navigationController?.popViewController(animated: true)
         

@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     }
     
     /// 移除默认的视图
-    func disMissDefultViewController() {
+    @objc func disMissDefultViewController() {
         
         guard self.displayImageView != nil else {
             return

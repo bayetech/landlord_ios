@@ -17,9 +17,9 @@ class BKNavigaitonController: UINavigationController {
         super.viewDidLoad()
         
         let navBar                       = UINavigationBar.appearance();
-        navBar.titleTextAttributes      = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#333333"),NSFontAttributeName : UIFont.systemFont(ofSize: 18.0)];
+        navBar.titleTextAttributes      = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font.rawValue : UIFont.systemFont(ofSize: 18.0)];
         navBar.tintColor                = UIColor.colorWithHexString("#1E3044")
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.colorWithHexString("#1E3044")], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor.rawValue : UIColor.colorWithHexString("#1E3044")], for: .normal)
     }
     
 

@@ -13,29 +13,29 @@ import SwiftyJSON
 
 class BKChatGroupModel: RLMObject  {
 
-   dynamic var category : String?
-   dynamic var owner_uid : String = ""
-   dynamic var groupid : String?
-   dynamic var isInGroup : Bool = false
-   dynamic var avatar : String?
-   dynamic var city : String?
-   dynamic var is_public : Bool = true {
+   @objc dynamic var category : String?
+   @objc dynamic var owner_uid : String = ""
+   @objc dynamic var groupid : String?
+   @objc dynamic var isInGroup : Bool = false
+   @objc dynamic var avatar : String?
+   @objc dynamic var city : String?
+   @objc dynamic var is_public : Bool = true {
         didSet {
         }
     }
-   dynamic var is_approval : Bool = true {
+   @objc dynamic var is_approval : Bool = true {
         didSet {
         }
     }
-   dynamic var created_at : Int             = 0
-   dynamic var maxusers : Int               = 0
-   dynamic var groupname : String?
-   dynamic var desc : String?
-   dynamic var province : String?
-   dynamic var category_id : String?
-   dynamic var pinyin_letter : String      = ""
-   dynamic var owners : RLMLinkingObjects<RLMObject>?
-   dynamic var member_count : Int          = 0
+   @objc dynamic var created_at : Int             = 0
+   @objc dynamic var maxusers : Int               = 0
+   @objc dynamic var groupname : String?
+   @objc dynamic var desc : String?
+   @objc dynamic var province : String?
+   @objc dynamic var category_id : String?
+   @objc dynamic var pinyin_letter : String      = ""
+   @objc dynamic var owners : RLMLinkingObjects<RLMObject>?
+   @objc dynamic var member_count : Int          = 0
     open override class func primaryKey() -> String? {
         return "groupid"
     }

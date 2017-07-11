@@ -126,7 +126,7 @@ extension BKSearchGroupViewController {
 extension BKSearchGroupViewController {
     
     /// 加入群组的按钮点击事件
-    func joinGroupClick(_ btn:UIButton,event : Any) {
+    @objc func joinGroupClick(_ btn:UIButton,event : Any) {
         
         self.textField.resignFirstResponder()
         let indexPath = btn.indexPath(at: self.tableView, forEvent: event)

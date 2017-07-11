@@ -178,7 +178,7 @@ class BKShowRedPacketView: UIView , CAAnimationDelegate {
         }
     }
     
-    func dismiss() {
+    @objc func dismiss() {
         
         
         UIView.animate(withDuration: 0.5, animations: {[weak self] () in
@@ -194,7 +194,7 @@ class BKShowRedPacketView: UIView , CAAnimationDelegate {
     }
     
     /// 拆红包的按钮
-    func separateButtonClick(_ btn : UIButton) {
+    @objc func separateButtonClick(_ btn : UIButton) {
         
         separateButton.isSelected             = true
         contentView.isUserInteractionEnabled  = false
@@ -214,7 +214,7 @@ class BKShowRedPacketView: UIView , CAAnimationDelegate {
     }
    
     /// 看大家手气
-    func lucklabelClick()  {
+    @objc func lucklabelClick()  {
         delegate?.showRedPacketViewLucklabelClick?(self.redPacketId!, didOpenRedPacket: false)
         removeFromSuperview()
     }

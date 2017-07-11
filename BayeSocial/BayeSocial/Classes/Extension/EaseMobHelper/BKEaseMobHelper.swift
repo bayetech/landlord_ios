@@ -55,13 +55,9 @@ extension AppDelegate {
             let noticeCenter                        = UNUserNotificationCenter.current()
             noticeCenter.delegate                   = self
             noticeCenter.requestAuthorization(options: [.alert,.badge,.sound], completionHandler: { (result, error) in
-                if result {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-                
                 BKGlobalOptions.curret.supportUserNotifications = result
-                
             })
+            UIApplication.shared.registerForRemoteNotifications()
 
         } else {
             
@@ -80,12 +76,7 @@ extension AppDelegate {
         if error != nil {
             NJLog(error?.errorDescription);
         }
-        
-        let data = NSData(data: deviceToken)
-        let datastr = data.description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
-        print("deviceToken:\(datastr)")
 
-        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -124,7 +115,7 @@ extension AppDelegate {
     
     
     /// 用户一旦登录巴爷汇就会同时登录环信账号
-    func userDidLoginApp(_ noti : Notification) {
+    @objc func userDidLoginApp(_ noti : Notification) {
      
         let authorizationToken = noti.object as? BKAuthorizationToken
         if EMClient.shared().isLoggedIn {

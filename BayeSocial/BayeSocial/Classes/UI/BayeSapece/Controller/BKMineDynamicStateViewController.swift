@@ -154,7 +154,7 @@ class BKMineDynamicStateViewController: BKBaseViewController {
         
     }
     
-    func tapAvatar() {
+    @objc func tapAvatar() {
     
         openImage(with: [self.userInfo?.avatar ?? ""], position: 0)
         

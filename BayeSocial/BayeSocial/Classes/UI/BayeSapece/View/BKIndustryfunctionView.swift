@@ -164,7 +164,7 @@ class BKIndustryfunctionView: UIView {
         
     }
     /// 点击了确定按钮
-    func sureButtonClick() {
+    @objc func sureButtonClick() {
         
         var insdustryfunction : String          = ""
         var itemUids          : [String]        = [String]()
@@ -355,10 +355,10 @@ extension BKIndustryfunctionView : UITableViewDataSource , UITableViewDelegate {
 /// 群分类的一级模型
 class BKIndustryMainModel : RLMObject {
     
-   dynamic var uid : String?
-   dynamic var name : String?
-   dynamic var isSelected : Bool   = false
-   dynamic var subIndustryItems = RLMArray(objectClassName: BKIndustrySubModel.className())
+   @objc dynamic var uid : String?
+   @objc dynamic var name : String?
+   @objc dynamic var isSelected : Bool   = false
+   @objc dynamic var subIndustryItems = RLMArray(objectClassName: BKIndustrySubModel.className())
 
     /// 设置主 Key
     open override class func primaryKey() -> String? {
@@ -396,10 +396,10 @@ class BKIndustryMainModel : RLMObject {
 
 /// 行业职能二级分类
 class BKIndustrySubModel: RLMObject {
-    dynamic var uid : String?
-    dynamic var name : String?
-    dynamic var isSelected : Bool   = false
-    dynamic var parentId : String?
+    @objc dynamic var uid : String?
+    @objc dynamic var name : String?
+    @objc dynamic var isSelected : Bool   = false
+    @objc dynamic var parentId : String?
     /// 设置主 Key
     open override class func primaryKey() -> String? {
         return "uid"

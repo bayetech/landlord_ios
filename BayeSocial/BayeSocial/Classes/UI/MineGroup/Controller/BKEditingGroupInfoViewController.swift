@@ -270,7 +270,7 @@ class BKEditingGroupInfoViewController: BKBaseViewController {
     
     
     /// 上传头像
-    func uploadImage() {
+    @objc func uploadImage() {
         
       
         let _ = YepAlertKit.showActionSheet(in: self, title: nil, message: nil, titles: ["从相册选择","拍照"], cancelTitle: "取消", destructive: nil) {[weak self] (index) in

@@ -12,9 +12,9 @@ import SwiftyJSON
 /// 异常信息收集类 收集 crash 日志 reason
 class BKExceptions : RLMObject {
     
-    dynamic var exceptionInfo : String?
-    dynamic var stackArray : String = ""
-    dynamic var id : String = "exceptions"
+    @objc dynamic var exceptionInfo : String?
+    @objc dynamic var stackArray : String = ""
+    @objc dynamic var id : String = "exceptions"
     open override class func primaryKey() -> String?   {
         return "id"
     }

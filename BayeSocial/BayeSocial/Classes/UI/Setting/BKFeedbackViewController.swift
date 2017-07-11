@@ -122,7 +122,7 @@ class BKFeedbackViewController: BKBaseViewController {
     }
     
     /// 提交意见反馈的按钮
-    func subButtonClick() {
+    @objc func subButtonClick() {
         
         self.textView?.resignFirstResponder()
         self.textView?.resignFirstResponder()

@@ -69,7 +69,7 @@ class BKApplicationHelper: NSObject {
     /**
      程序开始活跃的通知
      */
-    func bk_ApplicationDidBecomeActiveNotification(_ noti : Notification) {
+    @objc func bk_ApplicationDidBecomeActiveNotification(_ noti : Notification) {
         let applicaion = noti.object as! UIApplication
         self.delegate?.bk_ApplicationDidBecomeActiveNotification?(applicaion)
     }
@@ -77,7 +77,7 @@ class BKApplicationHelper: NSObject {
     /**
      程序已经进入后台通知
      */
-    func bk_ApplicationDidEnterBackgroundNotificationno(_ noti : Notification) {
+    @objc func bk_ApplicationDidEnterBackgroundNotificationno(_ noti : Notification) {
         
         let applicaion = noti.object as! UIApplication
         
@@ -87,7 +87,7 @@ class BKApplicationHelper: NSObject {
     /**
      程序失去响应的通知
      */
-    func bk_ApplicationWillTerminateNotification(_ noti : Notification) {
+    @objc func bk_ApplicationWillTerminateNotification(_ noti : Notification) {
         
         let applicaion = noti.object as! UIApplication
         self.delegate?.bk_ApplicationWillTerminateNotification?(applicaion)

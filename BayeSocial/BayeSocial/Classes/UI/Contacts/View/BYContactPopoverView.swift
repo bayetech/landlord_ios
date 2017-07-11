@@ -56,7 +56,7 @@ class BYContactPopoverView: UIView {
         
     }
     
-    func buttonClick(btn : BKAdjustButton) {
+    @objc func buttonClick(btn : BKAdjustButton) {
         let actionType  = ContactAddBtnType(rawValue: btn.tag)
         self.delegate?.didSelectButton(self, type: actionType!)
         self.disMiss()

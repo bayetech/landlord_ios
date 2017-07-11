@@ -60,7 +60,7 @@ class BKAddFriendsViewController: BKBaseViewController {
         
         // 联系人输入框
         let inputTextField                      = UITextField()
-        inputTextField.attributedPlaceholder    = NSAttributedString(string: "手机号／姓名", attributes: [NSForegroundColorAttributeName:UIColor.colorWithHexString("#8E8E93"),NSFontAttributeName : CYLayoutConstraintFont(15.0)])
+        inputTextField.attributedPlaceholder    = NSAttributedString(string: "手机号／姓名", attributes: [NSAttributedStringKey.foregroundColor:UIColor.colorWithHexString("#8E8E93"),NSAttributedStringKey.font : CYLayoutConstraintFont(15.0)])
         inputTextField.backgroundColor          = UIColor.white
         inputTextField.font                     = CYLayoutConstraintFont(15.0)
         inputTextField.delegate                 = self

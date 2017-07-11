@@ -139,7 +139,7 @@ class BKSearchResultViewController: BKBaseViewController {
     
     /// 输入内容发送改变的事件
     
-    func textDidChange() {
+    @objc func textDidChange() {
         
         self.setupTextfieldInputText(self.textField.text!)
     

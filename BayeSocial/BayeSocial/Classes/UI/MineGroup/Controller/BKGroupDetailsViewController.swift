@@ -129,7 +129,7 @@ class BKGroupDetailsViewController: BKBaseViewController  {
     }
     
  
-    func back() {
+    @objc func back() {
         let _ = self.navigationController?.popViewController(animated: true)
     }
  
@@ -233,10 +233,10 @@ extension BKGroupDetailsViewController : UITableViewDelegate , UITableViewDataSo
             }
             
             let dict                                = self.datas[indexPath.section][indexPath.row]
-            let attributedString                    = NSMutableAttributedString(string: dict["title"]!, attributes: [NSFontAttributeName : CYLayoutConstraintFont(16.0),NSForegroundColorAttributeName : UIColor.colorWithHexString("#333333")])
+            let attributedString                    = NSMutableAttributedString(string: dict["title"]!, attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(16.0),NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#333333")])
             if indexPath.section == 1 {
                 let membersCount = self.groupMembers?.count ?? 0
-                attributedString.append(NSAttributedString(string: " \(membersCount) / \((self.groupModel?.maxusers)!)", attributes: [NSForegroundColorAttributeName : UIColor.colorWithHexString("#FAB66F")]))
+                attributedString.append(NSAttributedString(string: " \(membersCount) / \((self.groupModel?.maxusers)!)", attributes: [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#FAB66F")]))
             }
             normalCell?.textLabel?.attributedText   = attributedString;
             
@@ -448,7 +448,7 @@ extension BKGroupDetailsViewController : BKMakeCallViewControllerDelegate , BKAd
     }
     
     /// 申请加入群组
-    func joinGroupClick(_ btn : UIButton) {
+    @objc func joinGroupClick(_ btn : UIButton) {
         
         self.isVerifyGroup      = (groupModel?.is_approval)!
         if self.isVerifyGroup {

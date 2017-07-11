@@ -33,7 +33,7 @@ class BYContactViewController: UIViewController {
     }
     
     // 当人脉发生改变的时候
-    func contactDidChange() {
+    @objc func contactDidChange() {
         loadDatas()
     }
     
@@ -290,10 +290,6 @@ extension BYContactViewController : BYContactPopoverViewDelegate , BYContactTabl
             break
         default: // 扫描二维码
             
-            let scanQRCodeViewController                        = BKScanQRCodeViewController()
-            scanQRCodeViewController.hidesBottomBarWhenPushed   = true
-            self.navigationController?.pushViewController(scanQRCodeViewController, animated: true)
-
             break
         }
         

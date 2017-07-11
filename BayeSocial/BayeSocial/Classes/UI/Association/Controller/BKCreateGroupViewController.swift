@@ -26,7 +26,7 @@ class BKCreateGroupViewController: UIViewController {
     var imageArray : [String] = [String]()
     lazy var textField : UITextField = {
         let tf                       = UITextField()
-        tf.attributedPlaceholder     = NSAttributedString(string: "请输入部落名称，最多15个字", attributes: [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(16.0)])
+        tf.attributedPlaceholder     = NSAttributedString(string: "请输入部落名称，最多15个字", attributes: [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(16.0)])
         tf.addTarget(self, action: #selector(BKCreateGroupViewController.textDidChange), for: .editingChanged)
         tf.borderStyle                = .none
 //        tf.delegate              = self
@@ -90,7 +90,7 @@ class BKCreateGroupViewController: UIViewController {
     }
     
     /// 下一步
-    func nextAction() {
+    @objc func nextAction() {
         
         let avatar              = self.imageArray.last
         guard avatar != nil else {
@@ -110,7 +110,7 @@ class BKCreateGroupViewController: UIViewController {
     }
     
     /// 输入内容发生改变
-    func textDidChange() {
+    @objc func textDidChange() {
         
         var text                                = textField.text!
         let length                              = text.length
@@ -124,7 +124,7 @@ class BKCreateGroupViewController: UIViewController {
     }
 
     /// 上传群头像
-    func addImageButtonClick()  {
+    @objc func addImageButtonClick()  {
 
         let _ = YepAlertKit.showActionSheet(in: self, title: nil, message: nil, titles: ["从相册选择","拍照"], cancelTitle: "取消", destructive: nil) {[weak self] (index) in
             if index == 1 {

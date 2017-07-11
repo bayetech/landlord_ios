@@ -210,8 +210,8 @@ class BKRedPacketDetailsViewController: BKBaseViewController {
 
     func setupCoin_balance(_ coin : Double) {
         
-        let attributedString                    = NSMutableAttributedString(string: "\(coin)", attributes: [NSFontAttributeName : CYLayoutConstraintFont(50.0)])
-        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSFontAttributeName : CYLayoutConstraintFont(15.0)]))
+        let attributedString                    = NSMutableAttributedString(string: "\(coin)", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(50.0)])
+        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(15.0)]))
         coinLabel?.attributedText               = attributedString
         
     }
@@ -501,7 +501,7 @@ extension BKRedPacketDetailsViewController : UITableViewDelegate,UITableViewData
     }
     
     /// 查看我的红包记录
-    func mineRedPacketsBtnClick() {
+    @objc func mineRedPacketsBtnClick() {
         
         
         

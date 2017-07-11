@@ -28,7 +28,7 @@ class BKLoginViewController: BKBaseLoginModuleViewController {
     }
     
     /// 输入发生了改变的事件
-    func textChange() {
+    @objc func textChange() {
         var text = self.mobileTextField?.text
         if  (text?.length)! > 11 {
             text = text?.subString(to: 11)
@@ -46,7 +46,7 @@ class BKLoginViewController: BKBaseLoginModuleViewController {
         
         // 手机号码输入框
         self.mobileTextField                            = UITextField()
-        let placeholderAttribut                         = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(16.0)]
+        let placeholderAttribut                         = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(16.0)]
         self.mobileTextField?.attributedPlaceholder     = NSAttributedString(string: "请输入手机号", attributes:placeholderAttribut)
         self.mobileTextField?.keyboardType              = .numberPad
         self.mobileTextField?.addTarget(self, action: #selector(textChange), for: .editingChanged)
@@ -227,7 +227,7 @@ class BKLoginViewController: BKBaseLoginModuleViewController {
     }
 
     /// 忘记密码
-    func forgetButtonClick(_ sender: AnyObject) {
+    @objc func forgetButtonClick(_ sender: AnyObject) {
         
         let forgetPasswordViewController                = BKUpdatePasswordViewController()
         forgetPasswordViewController.title              = "忘记密码"
@@ -237,12 +237,12 @@ class BKLoginViewController: BKBaseLoginModuleViewController {
     }
     
     /// 微信登录
-    func wechatBtnClick(_ sender: UIButton) {
+    @objc func wechatBtnClick(_ sender: UIButton) {
    
     }
     
     /// 注册
-    func registerBtnClick(_ sender: UIButton) {
+    @objc func registerBtnClick(_ sender: UIButton) {
         
         let registerViewControlelr      = BKRegisterViewControlelr()
         self.navigationController?.pushViewController(registerViewControlelr, animated: true)

@@ -19,15 +19,15 @@ import UIKit
 /// 加好友人脉的请求消息模型
 class BKAddFriendReqeust : RLMObject {
 
-    dynamic  var customer_uid : String?
-    dynamic  var userAccount : String?
-    dynamic  var resion : String?
-    dynamic  var customer_avatar : String?
-    dynamic  var customer_name : String?
-    dynamic  var actionType : BKAddFriendActionType = .add
-    dynamic  var customer_company :String?
-    dynamic  var customer_company_position : String?
-    dynamic  var isRead : Bool = false
+    @objc dynamic  var customer_uid : String?
+    @objc dynamic  var userAccount : String?
+    @objc dynamic  var resion : String?
+    @objc dynamic  var customer_avatar : String?
+    @objc dynamic  var customer_name : String?
+    @objc dynamic  var actionType : BKAddFriendActionType = .add
+    @objc dynamic  var customer_company :String?
+    @objc dynamic  var customer_company_position : String?
+    @objc dynamic  var isRead : Bool = false
     convenience init(dictionary :[AnyHashable :Any],action : String) {
         self.init()
 

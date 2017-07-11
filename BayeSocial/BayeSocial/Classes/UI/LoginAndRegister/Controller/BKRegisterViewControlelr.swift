@@ -23,7 +23,7 @@ class BKRegisterViewControlelr : BKBaseLoginModuleViewController {
         
     }
     
-    func textDidChange() {
+    @objc func textDidChange() {
         var text = self.mobileTextField?.text
         if  (text?.length)! > 11 {
             text = text?.subString(to: 11)
@@ -34,7 +34,7 @@ class BKRegisterViewControlelr : BKBaseLoginModuleViewController {
         
         // 手机号输入框
         self.mobileTextField                            = UITextField()
-        let placeholderAttribut                         = [NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8"),NSFontAttributeName : CYLayoutConstraintFont(16.0)]
+        let placeholderAttribut                         = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8"),NSAttributedStringKey.font : CYLayoutConstraintFont(16.0)]
         self.mobileTextField?.attributedPlaceholder     = NSAttributedString(string: "请输入手机号", attributes:placeholderAttribut)
         self.mobileTextField?.textAlignment             = .center
         self.mobileTextField?.borderStyle               = .none
@@ -146,7 +146,7 @@ class BKRegisterViewControlelr : BKBaseLoginModuleViewController {
     }
     
     /// 查看注册协议
-    func registerSeeProtocolClick(_ btn : UIButton) {
+    @objc func registerSeeProtocolClick(_ btn : UIButton) {
         
         let legalViewController : LegalViewController   = LegalViewController()
         let nav : BKNavigaitonController                = BKNavigaitonController(rootViewController: legalViewController)
@@ -155,7 +155,7 @@ class BKRegisterViewControlelr : BKBaseLoginModuleViewController {
     }
     
     /// checkbox 点击
-    func checkBoxButtonClick(_ btn : UIButton) {
+    @objc func checkBoxButtonClick(_ btn : UIButton) {
         btn.isSelected      = !btn.isSelected
     }
     

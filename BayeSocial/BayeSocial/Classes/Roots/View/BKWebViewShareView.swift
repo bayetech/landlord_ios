@@ -107,14 +107,14 @@ class BKWebViewShareView: UIView {
         
     }
     
-    func buttonClick(_ btn : BKAdjustButton) {
+    @objc func buttonClick(_ btn : BKAdjustButton) {
         let index = btn.tag - 100
         delegate?.webviewShareViewDidSelectAtIndex?(index)
         hideShareView()
     }
     
     /// 隐藏视图
-    func hideShareView() {
+    @objc func hideShareView() {
         
         UIView.animate(withDuration: 0.3, animations: { () in
             self.contentView.setY(KScreenHeight)

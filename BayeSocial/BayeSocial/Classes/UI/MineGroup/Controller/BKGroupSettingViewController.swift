@@ -259,7 +259,7 @@ class BKGroupSettingViewController: BKBaseViewController {
     }
     
     /// 删除并退出
-    func deleteAndExitGroup() {
+    @objc func deleteAndExitGroup() {
         
         guard self.chatGroupModel != nil else {
             return
@@ -356,7 +356,7 @@ class BKGroupSettingViewController: BKBaseViewController {
         
     }
     
-    func back() {
+    @objc func back() {
         
        let _ =  self.navigationController?.popViewController(animated: true)
         
@@ -386,7 +386,7 @@ class BKGroupSettingViewController: BKBaseViewController {
     
     
     /// 编辑群资料
-    func editingGroupInfo() {
+    @objc func editingGroupInfo() {
         
         guard self.chatGroupModel != nil else {
             UnitTools.addLabelInWindow("暂时无法编辑部落资料", vc: self)
@@ -462,7 +462,7 @@ class BKGroupSettingViewController: BKBaseViewController {
     }
     
     /// 是否接受群消息
-    func swictcViewValueChanged(_ switchView : UISwitch) {
+    @objc func swictcViewValueChanged(_ switchView : UISwitch) {
       
         EMClient.shared().groupManager.updatePushService(forGroup: self.group_id, isPushEnabled: switchView.isOn) {[weak self] (group, erorr) in
             guard erorr != nil else {
@@ -476,7 +476,7 @@ class BKGroupSettingViewController: BKBaseViewController {
     }
     
     /// 添加群成员
-    func addMemberClick(_ btn :UIButton) {
+    @objc func addMemberClick(_ btn :UIButton) {
         
         let addMemberViewController         = BKAddGroupMemberViewController()
         addMemberViewController.title       = "邀请新成员"
@@ -617,9 +617,9 @@ extension BKGroupSettingViewController : UITableViewDataSource , UITableViewDele
             
             // 设置群成员人数
             let titleLabel                          = groupMembersCell?.contentView.viewWithTag(200) as! UILabel
-            let attributedString                    = NSMutableAttributedString(string: "群成员", attributes: [NSFontAttributeName : CYLayoutConstraintFont(16.0),NSForegroundColorAttributeName : UIColor.colorWithHexString("#333333")])
+            let attributedString                    = NSMutableAttributedString(string: "群成员", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(16.0),NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#333333")])
             let membersCount                        = self.groupMembers.count
-            attributedString.append(NSAttributedString(string: " \(membersCount) / \((self.chatGroupModel?.maxusers)!)", attributes: [NSForegroundColorAttributeName : UIColor.colorWithHexString("#FAB66F")]))
+            attributedString.append(NSAttributedString(string: " \(membersCount) / \((self.chatGroupModel?.maxusers)!)", attributes: [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#FAB66F")]))
             titleLabel.attributedText               = attributedString;
 
             

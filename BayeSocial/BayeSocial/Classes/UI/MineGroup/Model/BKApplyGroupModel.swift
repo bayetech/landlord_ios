@@ -21,18 +21,18 @@ import UIKit
 /// 申请加好友 建群的模型
 class BKApplyGroupModel: RLMObject {
     
-    dynamic var userAccount : String?
-    dynamic var customer_uid : String           = ""
-    dynamic var reason : String                 = ""
-    dynamic var isRead : Bool                   = false
-    dynamic var groupId : String                = ""
-    dynamic var groupAvatar :String             = ""
-    dynamic var title : String?
-    dynamic var groupName : String?
-    dynamic var userName : String               = ""
-    dynamic var userAvatar : String             = ""
-    dynamic var applyType : GroupApplyType      = .joinGroup
-    dynamic var time : String                   = ""
+    @objc dynamic var userAccount : String?
+    @objc dynamic var customer_uid : String           = ""
+    @objc dynamic var reason : String                 = ""
+    @objc dynamic var isRead : Bool                   = false
+    @objc dynamic var groupId : String                = ""
+    @objc dynamic var groupAvatar :String             = ""
+    @objc dynamic var title : String?
+    @objc dynamic var groupName : String?
+    @objc dynamic var userName : String               = ""
+    @objc dynamic var userAvatar : String             = ""
+    @objc dynamic var applyType : GroupApplyType      = .joinGroup
+    @objc dynamic var time : String                   = ""
 
     open override class func primaryKey() -> String? {
         return "customer_uid"

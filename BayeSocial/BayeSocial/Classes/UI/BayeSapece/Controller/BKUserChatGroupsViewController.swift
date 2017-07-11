@@ -224,7 +224,7 @@ extension BKUserChatGroupsViewController : BKMakeCallViewControllerDelegate {
     
     
     /// 加入群组的按钮点击事件
-    func joinGroupClick(_ btn:UIButton,event : Any) {
+    @objc func joinGroupClick(_ btn:UIButton,event : Any) {
         
         let indexPath = btn.indexPath(at: self.tableView, forEvent: event)
         guard indexPath != nil else {

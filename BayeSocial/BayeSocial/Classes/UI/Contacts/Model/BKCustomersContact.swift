@@ -12,18 +12,18 @@ import SwiftyJSON
 /// 联系人信息的模型
 class BKCustomersContact :  RLMObject {
 
-    dynamic var avatar : String             = ""
-    dynamic var mobile : String             = ""
-    dynamic var name : String               = ""
-    dynamic var uid : String                = ""
-    dynamic var letters : String            = ""
-    dynamic var applyReason : String        = ""
-    dynamic var isFriend : Bool             = false
-    dynamic var isSelectContact             = false
-    dynamic var pinyin_letter : String      = ""
-    dynamic var company : String            = ""
-    dynamic var company_position : String   = ""
-    dynamic var industry_function_items : String    = ""
+    @objc dynamic var avatar : String             = ""
+    @objc dynamic var mobile : String             = ""
+    @objc dynamic var name : String               = ""
+    @objc dynamic var uid : String                = ""
+    @objc dynamic var letters : String            = ""
+    @objc dynamic var applyReason : String        = ""
+    @objc dynamic var isFriend : Bool             = false
+    @objc dynamic var isSelectContact             = false
+    @objc dynamic var pinyin_letter : String      = ""
+    @objc dynamic var company : String            = ""
+    @objc dynamic var company_position : String   = ""
+    @objc dynamic var industry_function_items : String    = ""
     open override class func primaryKey() -> String? {
         return "uid"
     }
@@ -149,8 +149,8 @@ class BKCustomersContact :  RLMObject {
 /// 管理用户人脉的集合 某个人的所有人脉列表
 class BKUsersContactsList : RLMObject {
     
-    dynamic var contacts = RLMArray(objectClassName: BKCustomersContact.className())
-    dynamic var userAccount : String?
+    @objc dynamic var contacts = RLMArray(objectClassName: BKCustomersContact.className())
+    @objc dynamic var userAccount : String?
     open override class func primaryKey() -> String? {
         return "userAccount"
     }

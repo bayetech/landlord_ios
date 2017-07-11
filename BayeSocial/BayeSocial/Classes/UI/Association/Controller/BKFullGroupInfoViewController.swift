@@ -133,7 +133,7 @@ class BKFullGroupInfoViewController: BKBaseViewController {
     }
     
     /// 建群的按钮点击事件
-    func createGroupBtnClick(btn : UIButton) {
+    @objc func createGroupBtnClick(btn : UIButton) {
         
         guard self.avatar != nil else {
             UnitTools.addLabelInWindow("请上传部落头像", vc: self)

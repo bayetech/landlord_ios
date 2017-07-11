@@ -78,7 +78,7 @@ class BKComposeViewController: BKBaseViewController {
     /**
      发送帖子
      */
-    func sendAction() {
+    @objc func sendAction() {
         
         if self.textView.text.isEmpty {
             UnitTools.addLabelInWindow("发帖内容不能为空", vc:  self)
@@ -219,7 +219,7 @@ class BKComposeViewController: BKBaseViewController {
     /**
      返回上一页
      */
-    func back() {
+    @objc func back() {
         
         self.textView.resignFirstResponder()
         self.dismiss(animated: true, completion: nil)
@@ -228,7 +228,7 @@ class BKComposeViewController: BKBaseViewController {
     /**
      移动 CollectionView 的 cell
     */
-    func lonePressMoving(_ longGestureRecognizer : UILongPressGestureRecognizer) {
+    @objc func lonePressMoving(_ longGestureRecognizer : UILongPressGestureRecognizer) {
         // 加号按钮禁止拖动
         let selectIndexPath = self.collectionView.indexPathForItem(at: self.longPressMoving!.location(in: self.collectionView))
         

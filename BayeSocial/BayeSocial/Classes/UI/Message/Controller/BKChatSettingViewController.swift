@@ -190,7 +190,7 @@ class BKChatSettingViewController: BKBaseViewController {
     }
     
     /// 选择了 switch 开关
-    func swictchValueChanged(_ switchView : UISwitch) {
+    @objc func swictchValueChanged(_ switchView : UISwitch) {
         
         self.switchOpenStatus[switchView.tag] = switchView.isOn
         self.tableView.reloadRows(at: [IndexPath(row: switchView.tag, section: 0)], with: .automatic)

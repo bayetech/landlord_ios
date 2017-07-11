@@ -65,7 +65,7 @@ import PKHUD
     }
     
     /// 下一步
-    func nextStep() {
+    @objc func nextStep() {
        
         var contacts : [String:String]    = [String:String]()
         for (_,item) in self.cacheMembers.reversed() {
@@ -80,7 +80,7 @@ import PKHUD
     }
     
     /// 取消
-    func cancel() {
+    @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
     }
     

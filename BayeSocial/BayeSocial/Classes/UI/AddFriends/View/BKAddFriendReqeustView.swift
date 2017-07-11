@@ -143,13 +143,13 @@ class BKAddFriendReqeustView: UITableViewCell {
     }
     
     // 接受加好友请求或者发消息
-    func buttonClick(_ btn : UIButton) {
+    @objc func buttonClick(_ btn : UIButton) {
         
         self.delegate?.didSelectButton?(self, indexPath: self.indexPath!, isSelect: btn.isSelected)
     }
     
     /// 点击了用户头像
-    func imageViewDidClick() {
+    @objc func imageViewDidClick() {
         
         self.delegate?.didSelectUserImageView?(self, indexPath: self.indexPath!)
         

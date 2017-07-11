@@ -28,7 +28,7 @@ class BKSearchTextField: UITextField {
             guard placeholder != nil else {
                 return
             }
-            self.attributedPlaceholder          = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName:UIColor.colorWithHexString("#8E8E93"),NSFontAttributeName : CYLayoutConstraintFont(14.0)])
+            self.attributedPlaceholder          = NSAttributedString(string: placeholder!, attributes: [NSAttributedStringKey.foregroundColor:UIColor.colorWithHexString("#8E8E93"),NSAttributedStringKey.font : CYLayoutConstraintFont(14.0)])
         }
     }
     

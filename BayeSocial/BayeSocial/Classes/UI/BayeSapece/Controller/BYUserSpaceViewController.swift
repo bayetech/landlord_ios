@@ -241,7 +241,7 @@ class BYUserSpaceViewController: BKBaseViewController {
 //    }
     
     /// 点击用户头像编辑个人资料
-    func headImageViewClick() {
+    @objc func headImageViewClick() {
         
         let userDetailViewController                                    = BKUserDetailViewController()
         userDetailViewController.hidesBottomBarWhenPushed               = true
@@ -251,7 +251,7 @@ class BYUserSpaceViewController: BKBaseViewController {
     }
     
     /// 编辑个人资料
-    func editInformation() {
+    @objc func editInformation() {
 
           let editingViewController                                 = BKEditingBusinessCardViewController()
           editingViewController.hidesBottomBarWhenPushed            = true

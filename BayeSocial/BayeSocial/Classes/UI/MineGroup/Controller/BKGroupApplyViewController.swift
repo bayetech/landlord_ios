@@ -95,7 +95,7 @@ class BKGroupApplyViewController: BKBaseViewController {
 
     //MARK: 同意加群 分群主邀请入群 和 群主同意别人加群申请
     /// 接受加群的申请
-    func acceptButtonClick( _ btn :UIButton,event : Any) {
+    @objc func acceptButtonClick( _ btn :UIButton,event : Any) {
         let indexPath = btn.indexPath(at: self.tableView, forEvent: event)
         if indexPath != nil {
             let applyModel  = self.applyModels[indexPath!.row]
@@ -148,7 +148,7 @@ class BKGroupApplyViewController: BKBaseViewController {
     
     //MARK: 拒绝加群 分群主拒绝别人入群 和 自己拒绝别人的加群邀请
     /// 拒绝加群的申请
-    func declineButtonClick( _ btn :UIButton,event : Any) {
+    @objc func declineButtonClick( _ btn :UIButton,event : Any) {
         
         let indexPath = btn.indexPath(at: self.tableView, forEvent: event)
         if indexPath != nil {

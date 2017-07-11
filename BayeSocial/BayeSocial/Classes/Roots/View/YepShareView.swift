@@ -164,7 +164,7 @@ class YepShareView: UIView {
     }
     
     /// 点击了分享的按钮
-    func btnClick(_ btn :BKAdjustButton) {
+    @objc func btnClick(_ btn :BKAdjustButton) {
         
         hideAnimation()
         
@@ -202,7 +202,7 @@ class YepShareView: UIView {
         
     }
     
-    func hideAnimation() {
+    @objc func hideAnimation() {
         self.removeFromSuperview()
     }
     

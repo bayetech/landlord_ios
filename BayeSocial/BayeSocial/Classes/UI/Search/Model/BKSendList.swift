@@ -16,10 +16,10 @@ import UIKit
 /// 加好友和群组的发送请求
 class BKSendList: RLMObject {
     
-    dynamic var uid : String?
-    dynamic var isSend : Bool = false
-    dynamic var userAccount : String?
-    dynamic var type : SendListType = .contact
+    @objc dynamic var uid : String?
+    @objc dynamic var isSend : Bool = false
+    @objc dynamic var userAccount : String?
+    @objc dynamic var type : SendListType = .contact
     open override class func primaryKey() -> String? {
         return "uid"
     }

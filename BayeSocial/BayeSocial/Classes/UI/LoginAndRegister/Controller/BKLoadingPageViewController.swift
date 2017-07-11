@@ -83,13 +83,13 @@ class BKLoadingPageViewController: UIViewController , UIScrollViewDelegate {
 
     }
     
-    func buttonClick(_ btn : UIButton) {
+    @objc func buttonClick(_ btn : UIButton) {
         
         AppDelegate.appDelegate().displayLoginViewController()
         
     }
 
-    func pageControlValue(_ pageControl : UIPageControl) {
+    @objc func pageControlValue(_ pageControl : UIPageControl) {
     
         let offSetX  = CGFloat(pageControl.currentPage) * KScreenWidth
         scrollView.setContentOffset(CGPoint(x:offSetX,y:0), animated: true)

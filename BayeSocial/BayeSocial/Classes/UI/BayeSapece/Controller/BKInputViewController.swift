@@ -27,7 +27,7 @@ class BKInputViewController: UIViewController {
         self.view.backgroundColor                   = UIColor.RGBColor(245.0, green: 245.0, blue: 245.0)
         self.textField                              = UITextField()
         self.textField?.borderStyle                 = .none
-        self.textField?.attributedText              = NSAttributedString(string: "", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14.0),NSForegroundColorAttributeName : UIColor.colorWithHexString("#C8C8C8")])
+        self.textField?.attributedText              = NSAttributedString(string: "", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14.0),NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#C8C8C8")])
         self.textField?.font                        = UIFont.systemFont(ofSize: 14.0)
         self.textField?.clearButtonMode             = .always
         self.textField?.backgroundColor             = UIColor.white

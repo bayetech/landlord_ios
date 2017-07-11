@@ -45,7 +45,7 @@ class BKStoreViewController: BKBaseWebViewController  {
     }
     
     /// 打开右侧的工具条
-    func webViewTool() {
+    @objc func webViewTool() {
     
         if wkShareView != nil {
             wkShareView?.removeFromSuperview()
@@ -61,7 +61,7 @@ class BKStoreViewController: BKBaseWebViewController  {
     /**
      是否显示 leftButtonItem
      */
-    func webViewBack() {
+    @objc func webViewBack() {
         
         guard self.wkWebView.canGoBack  else {
             let _ = self.navigationController?.popViewController(animated: true)
@@ -72,7 +72,7 @@ class BKStoreViewController: BKBaseWebViewController  {
     }
     
     /// 查看社区消息
-    func clickRightBtn() {
+    @objc func clickRightBtn() {
         let _ = self.navigationController?.popViewController(animated: true)
     }
     

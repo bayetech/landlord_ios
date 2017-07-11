@@ -11,34 +11,34 @@ import SwiftyJSON
 
 class UserInfo: RLMObject {
 
-    dynamic var detail_address : String         = ""
-    dynamic var province : String               = ""
-    dynamic var company_position : String       = ""
-    dynamic var city : String                   = ""
-    dynamic var county : String                 = ""
-    dynamic var mobile : String?
-    dynamic var avatar : String?
-    dynamic var name: String                    = ""
-    dynamic var company: String?
-    dynamic var email: String?
-    dynamic var verifyCode: String?
-    dynamic var gender: String?
-    dynamic var coin_balance: String            = "0"
-    dynamic var user_level: String?
-    dynamic var level : String                  = "游客"
-    dynamic var uid : String                    = ""
-    dynamic var baye_converge_position : String = ""
-    dynamic var baye_level : String             = ""
-    dynamic var industry_function_items : String = ""
-    dynamic var baye_converge_name : String?
-    dynamic var recent_hub_images : Data?
-    dynamic var namecard_visible_scope : String?
-    dynamic var top_customer_friends            = RLMArray(objectClassName: BKCustomersContact.className())
-    dynamic var joined_chat_groups              = RLMArray(objectClassName: BKChatGroupModel.className())
+    @objc dynamic var detail_address : String         = ""
+    @objc dynamic var province : String               = ""
+    @objc dynamic var company_position : String       = ""
+    @objc dynamic var city : String                   = ""
+    @objc dynamic var county : String                 = ""
+    @objc dynamic var mobile : String?
+    @objc dynamic var avatar : String?
+    @objc dynamic var name: String                    = ""
+    @objc dynamic var company: String?
+    @objc dynamic var email: String?
+    @objc dynamic var verifyCode: String?
+    @objc dynamic var gender: String?
+    @objc dynamic var coin_balance: String            = "0"
+    @objc dynamic var user_level: String?
+    @objc dynamic var level : String                  = "游客"
+    @objc dynamic var uid : String                    = ""
+    @objc dynamic var baye_converge_position : String = ""
+    @objc dynamic var baye_level : String             = ""
+    @objc dynamic var industry_function_items : String = ""
+    @objc dynamic var baye_converge_name : String?
+    @objc dynamic var recent_hub_images : Data?
+    @objc dynamic var namecard_visible_scope : String?
+    @objc dynamic var top_customer_friends            = RLMArray(objectClassName: BKCustomersContact.className())
+    @objc dynamic var joined_chat_groups              = RLMArray(objectClassName: BKChatGroupModel.className())
     
-    dynamic var mobile_visible_scope : String?
-    dynamic var hub_background_image : String  = ""
-    dynamic var userAccount : String?
+    @objc dynamic var mobile_visible_scope : String?
+    @objc dynamic var hub_background_image : String  = ""
+    @objc dynamic var userAccount : String?
     
     open override class func primaryKey() -> String? {
         return "userAccount"

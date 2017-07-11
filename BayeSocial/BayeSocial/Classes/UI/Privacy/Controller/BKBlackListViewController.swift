@@ -55,7 +55,7 @@ class BKBlackListViewController: BKBaseTableViewController {
     }
     
     /// 移除黑名单
-    func removeButtonClick(_ btn : UIButton,event : Any) {
+    @objc func removeButtonClick(_ btn : UIButton,event : Any) {
         
        let indexPath = btn.indexPath(at: self.tableView, forEvent: event)
         guard indexPath != nil else {

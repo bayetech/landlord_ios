@@ -133,20 +133,20 @@ class BKShareUserQRCodeView: UIView {
     /// 创建我的二维码
     func createMineQRCode(with image : UIImage) {
         
-        weak var weakSelf = self
-        DispatchQueue.global().async {
-            let msg                             = "bayefriend:\(KCustomAuthorizationToken.easemob_username)"
-            // 我的二维码
-            let image                           = BKGenerateQRCode.createQRCodeByString(msg, foregroundImage : BKGenerateQRCode.centerImage(image))
-            DispatchQueue.main.async {
-                weakSelf?.mineQrCodeImage       = image
-            }
-        }
+//        weak var weakSelf = self
+//        DispatchQueue.global().async {
+//            let msg                             = "bayefriend:\(KCustomAuthorizationToken.easemob_username)"
+//            // 我的二维码
+//            let image                           = BKGenerateQRCode.createQRCodeByString(msg, foregroundImage : BKGenerateQRCode.centerImage(image))
+//            DispatchQueue.main.async {
+//                weakSelf?.mineQrCodeImage       = image
+//            }
+//        }
     
     }
     
     /// 点击头像
-    func avatarImageViewClick() {
+    @objc func avatarImageViewClick() {
         self.delegate?.shareViewDidSelectHeadImageView?(self)
         self.dismissAnimation()
     }
@@ -167,7 +167,7 @@ class BKShareUserQRCodeView: UIView {
         
     }
     
-    func dismissAnimation() {
+    @objc func dismissAnimation() {
         
         weak var weakSelf                       = self
         UIView.animate(withDuration: 0.5, animations: {

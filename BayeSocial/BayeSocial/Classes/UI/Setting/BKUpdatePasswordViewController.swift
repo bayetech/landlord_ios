@@ -28,12 +28,12 @@ class BKUpdatePasswordViewController: BKBaseViewController {
     var timeOut : Int = 120
     var resetPasswordType : UpdatePasswordType = .update
     /// 取消按钮
-    func cancelClick() {
+    @objc func cancelClick() {
        let _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     /// 姓名输入框内容发送了改变
-    func textDidChange(_ textField : UITextField) {
+    @objc func textDidChange(_ textField : UITextField) {
         let num = textField.tag == 100 ? 11 : 6
         var text = textField.text
         if (text?.length)! > num {
@@ -55,7 +55,7 @@ class BKUpdatePasswordViewController: BKBaseViewController {
         ]
         
         self.automaticallyAdjustsScrollViewInsets   = true
-        let placeAttributes : [String : AnyObject]  = [NSFontAttributeName : CYLayoutConstraintFont(17.0),NSForegroundColorAttributeName : UIColor.colorWithHexString("#898989")]
+        let placeAttributes : [NSAttributedStringKey : Any]  = [NSAttributedStringKey.font : CYLayoutConstraintFont(17.0),NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#898989")]
         weak var lastLineView : UIView?
         for i in 0..<placeHolders.count {
             
@@ -137,7 +137,7 @@ class BKUpdatePasswordViewController: BKBaseViewController {
     }
     
     /// 完成按钮
-    func finishedButtonClick() {
+    @objc func finishedButtonClick() {
         
         let verifyCode          = self.textFields[1].text ?? ""
         let mobile              = self.textFields[0].text ?? ""
@@ -286,7 +286,7 @@ class BKUpdatePasswordViewController: BKBaseViewController {
 // MARK: - 验证码模块
 extension BKUpdatePasswordViewController {
     
-    func sendVerifyCodeAction(_ btn : UIButton) {
+    @objc func sendVerifyCodeAction(_ btn : UIButton) {
     
         self.hiddenKeyboard()
         let mobile                          = self.textFields[0].text ?? ""
@@ -323,7 +323,7 @@ extension BKUpdatePasswordViewController {
     }
     
     /// 更新倒计时提示语
-    func updateTime() {
+    @objc func updateTime() {
         
         if self.timeOut <= 0 {
             self.invalidateTimer()

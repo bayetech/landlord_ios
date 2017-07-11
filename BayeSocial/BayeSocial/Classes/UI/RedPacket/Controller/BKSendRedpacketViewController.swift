@@ -28,7 +28,7 @@ class SendRedPacketCell : UITableViewCell , UITextFieldDelegate {
         didSet {
             
             self.titleLabel?.text                   = data?["title"]
-            self.textField?.attributedPlaceholder   = NSAttributedString(string: data!["placeholder"]!, attributes: [NSFontAttributeName : CYLayoutConstraintFont(17.0),NSForegroundColorAttributeName : (self.color)])
+            self.textField?.attributedPlaceholder   = NSAttributedString(string: data!["placeholder"]!, attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(17.0),NSAttributedStringKey.foregroundColor : (self.color)])
             if indexPath?.section == 0  {
                 
                 if redPacketType == .group {
@@ -98,7 +98,7 @@ class SendRedPacketCell : UITableViewCell , UITextFieldDelegate {
     }
     
     /// 输入框内容发送改变
-    func textDidChange(_ textField : UITextField) {
+    @objc func textDidChange(_ textField : UITextField) {
         
         let index       = textField.tag
         var text        = textField.text ?? ""
@@ -413,7 +413,7 @@ class BKSendRedpacketViewController: BKBaseViewController {
     }
     
     /// 发送红包的按钮点击
-    func sendRedPacketClick(_ btn : UIButton) {
+    @objc func sendRedPacketClick(_ btn : UIButton) {
         
         
         let quantity            = self.redPacketType == .personal ? 1 : getSectionText(0).intValue
@@ -461,7 +461,7 @@ class BKSendRedpacketViewController: BKBaseViewController {
     }
     
     /// 充值巴金功能
-    func rechargeButtonCoin(_ btn : UIButton) {
+    @objc func rechargeButtonCoin(_ btn : UIButton) {
         
         let rechargeViewController          = BKStoreViewController()
         rechargeViewController.title        = "充值巴金"
@@ -476,7 +476,7 @@ class BKSendRedpacketViewController: BKBaseViewController {
         tableView.separatorInset = UIEdgeInsets.zero
     }
     
-    func back() {
+    @objc func back() {
         let _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -644,8 +644,8 @@ extension BKSendRedpacketViewController : SendRedPacketCellDelegate {
     /// 刷新底部要发送巴金红包数量
     func reloadInputCoinLabel(_ coin_quantity : String) {
        
-        let attributedString                    = NSMutableAttributedString(string: coin_quantity, attributes: [NSFontAttributeName : CYLayoutConstraintFont(36.0)])
-        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSFontAttributeName : CYLayoutConstraintFont(24.0)]))
+        let attributedString                    = NSMutableAttributedString(string: coin_quantity, attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(36.0)])
+        attributedString.append(NSAttributedString(string: "巴金", attributes: [NSAttributedStringKey.font : CYLayoutConstraintFont(24.0)]))
         inputCoinLabel.attributedText           = attributedString
         
     }

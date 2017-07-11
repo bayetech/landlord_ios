@@ -63,7 +63,7 @@ class BKTextView: UITextView {
     /**
      输入文字发生改变的通知
      */
-    func textDidChange(_ noti:Notification) {
+    @objc func textDidChange(_ noti:Notification) {
         self.placeHoderLabel.isHidden = self.text.length != 0
     }
 

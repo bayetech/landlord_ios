@@ -185,7 +185,7 @@ class BKMessageViewController: BKBaseViewController {
       
     }
     
-    func lastMessageDidChange(_ notifation : Notification) {
+    @objc func lastMessageDidChange(_ notifation : Notification) {
         guard notifation.object != nil else {
             return
         }
@@ -422,10 +422,6 @@ extension BKMessageViewController : BYContactPopoverViewDelegate {
             break
         default:
             
-            let scanQRCodeViewController                        = BKScanQRCodeViewController()
-            scanQRCodeViewController.hidesBottomBarWhenPushed   = true
-            self.navigationController?.pushViewController(scanQRCodeViewController, animated: true)
-
             break
         }
         
@@ -437,7 +433,7 @@ extension BKMessageViewController : BYContactPopoverViewDelegate {
     }
     
     /// 点击头像查看个人资料
-    func headImageViewAction(_ tap:UITapGestureRecognizer) {
+    @objc func headImageViewAction(_ tap:UITapGestureRecognizer) {
         
         let tapView             = tap.view
         guard tapView != nil else {
