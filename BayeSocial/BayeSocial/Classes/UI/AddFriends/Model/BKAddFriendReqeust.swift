@@ -39,11 +39,11 @@ class BKAddFriendReqeust : RLMObject {
         self.customer_company           = dictionary["customer_company"] as? String
         self.customer_company_position  = dictionary["customer_company_position"] as? String
 
-        self.resion                 = dictionary["message"] as? String
+        self.resion                     = dictionary["message"] as? String
 
     }
 
-    open override class func primaryKey() -> String? {
+    override class func primaryKey() -> String? {
         return "customer_uid"
     }
 

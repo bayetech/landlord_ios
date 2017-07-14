@@ -46,8 +46,8 @@ class BKTabBarViewController: UITabBarController {
         EMIMHelper.shared().messageViewController   = messageViewController
         
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor.rawValue : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font.rawValue : CYLayoutConstraintFont(11.0)], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor.rawValue : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font.rawValue : CYLayoutConstraintFont(11.0)], for: .normal )
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font : CYLayoutConstraintFont(11.0)], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font : CYLayoutConstraintFont(11.0)], for: .normal )
         
         UITextField.appearance().tintColor     = UIColor.colorWithHexString("#FFC800")
         UITextView.appearance().tintColor      = UIColor.colorWithHexString("#FFC800")

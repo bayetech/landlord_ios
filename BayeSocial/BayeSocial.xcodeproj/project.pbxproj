@@ -340,7 +340,7 @@
 		248769DE1DFE7B290067BAFC /* BKBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKBaseTableViewController.swift; sourceTree = "<group>"; };
 		248769DF1DFE7B290067BAFC /* BKBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKBaseViewController.swift; sourceTree = "<group>"; };
 		248769E01DFE7B290067BAFC /* BKBaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKBaseWebViewController.swift; sourceTree = "<group>"; };
-		248769E11DFE7B290067BAFC /* BKNavigaitonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNavigaitonController.swift; sourceTree = "<group>"; };
+		248769E11DFE7B290067BAFC /* BKNavigaitonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKNavigaitonController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		248769E21DFE7B290067BAFC /* BKTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKTabBarViewController.swift; sourceTree = "<group>"; };
 		248769E41DFE7B290067BAFC /* BKTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKTabBar.swift; sourceTree = "<group>"; };
 		248769E71DFE7B290067BAFC /* BKAdjustButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKAdjustButton.swift; sourceTree = "<group>"; };
@@ -742,8 +742,6 @@
 		240A7C521E123C8500BE1562 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2D673BD01E4C57F9000633D2 /* Model */,
-				2D673BD11E4C57F9000633D2 /* View */,
 				240A7C531E123C8500BE1562 /* BKStoreViewController.swift */,
 				240A7C541E123C8500BE1562 /* CBMPayController.h */,
 				240A7C551E123C8500BE1562 /* CBMPayController.m */,
@@ -1968,20 +1966,6 @@
 				2D63E7E51F13872000E0E4A5 /* BKAddFriendReqeust.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		2D673BD01E4C57F9000633D2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2D673BD11E4C57F9000633D2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2DD545961E5A80770009F0D0 /* Controller */ = {

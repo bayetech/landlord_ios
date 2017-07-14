@@ -76,7 +76,6 @@ class BYContactPopoverView: UIView {
     
         adjustButtonFrames(imageLeft: 20.0, imageSize: CGSize(width : 18.0,height : 16.0), button: self.creatGroupBtn)
         adjustButtonFrames(imageLeft: 20.5, imageSize: CGSize(width : 20.0,height : 15.5), button: self.addFriendBtn)
-//        adjustButtonFrames(imageLeft: 21.0, imageSize: CGSize(width : 17.0,height : 18.0), button: self.scanBtn)
         
     }
     

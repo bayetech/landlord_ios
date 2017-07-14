@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         }
 
         // 是否免登陆
-        if !userDidLogin {
+        if userDidLogin {
             displayMainViewController()
             self.addDisplayImageView()
         } else {
@@ -69,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         
         /// 收集异常错误信息
         BKExceptions.startCollectionCrashLogs()
-        
         
         return true
     }

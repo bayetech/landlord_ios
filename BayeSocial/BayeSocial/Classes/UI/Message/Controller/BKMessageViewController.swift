@@ -22,8 +22,7 @@ class BKMessageNotice : NSObject {
         self.title              = title
         self.msg                = msg
     }
-    
-    
+
 }
 
 /// 巴爷汇消息
@@ -202,22 +201,22 @@ class BKMessageViewController: BKBaseViewController {
     public func setupNoticeSection() {
         
         self.notieceArray.removeAll()
-        weak var weakSelf  = self
+        weak var weakSelf                = self
         
         let unreadGroupApplys = BKRealmManager.shared().queryUnreadGroupApplys()
         var groupNotice : BKMessageNotice?
         if unreadGroupApplys.count != 0  {
             
-            let appForModel         = (unreadGroupApplys.last)!
-            groupNotice                 = BKMessageNotice("部落通知", icon: "message_groupnotice", msg: appForModel.reason)
-            groupNotice?.badgeValue     = unreadGroupApplys.count
-            groupNotice?.timeInterval   = appForModel.time.intValue
+            let appForModel              = (unreadGroupApplys.last)!
+            groupNotice                  = BKMessageNotice("部落通知", icon: "message_groupnotice", msg: appForModel.reason)
+            groupNotice?.badgeValue      = unreadGroupApplys.count
+            groupNotice?.timeInterval    = appForModel.time.intValue
             
         } else {
-            
-            groupNotice                 = BKMessageNotice("部落通知", icon: "message_groupnotice", msg:"")
+
+            groupNotice                  = BKMessageNotice("部落通知", icon: "message_groupnotice", msg:"")
             groupNotice?.badgeValue      = 0
-            
+
         }
         
         weakSelf?.notieceArray.insert(groupNotice!, at: 0)
@@ -265,7 +264,7 @@ extension BKMessageViewController : UITableViewDataSource , UITableViewDelegate 
         
         if indexPath.section == 0 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BYMessageNotificationCell") as! BYMessageNotificationCell
+            let cell                    = tableView.dequeueReusableCell(withIdentifier: "BYMessageNotificationCell") as! BYMessageNotificationCell
             
             let noticeModel             = self.notieceArray[indexPath.row]
            
@@ -274,9 +273,9 @@ extension BKMessageViewController : UITableViewDataSource , UITableViewDelegate 
             cell.detailLabel.text       = noticeModel.msg
 
             if noticeModel.timeInterval != 0 {
-                cell.timeLabel.text         = NSDate.formattedTime(fromTimeInterval: Int64(noticeModel.timeInterval))
+                cell.timeLabel.text     = NSDate.formattedTime(fromTimeInterval: Int64(noticeModel.timeInterval))
             } else {
-                cell.timeLabel.text         = ""
+                cell.timeLabel.text     = ""
             }
             
             let msgCount = noticeModel.badgeValue
@@ -293,14 +292,14 @@ extension BKMessageViewController : UITableViewDataSource , UITableViewDelegate 
             
         } else {
             
-            let cell                        = tableView.dequeueReusableCell(withIdentifier: "BYMessageConversationViewCell") as! BYMessageConversationViewCell
-            let conversationM               = self.dataArray[indexPath.row]
-            cell.conversationModel          = conversationM
-            cell.avatarImageView.tag        = indexPath.row
+            let cell                             = tableView.dequeueReusableCell(withIdentifier: "BYMessageConversationViewCell") as! BYMessageConversationViewCell
+            let conversationM                    = self.dataArray[indexPath.row]
+            cell.conversationModel               = conversationM
+            cell.avatarImageView.tag             = indexPath.row
             cell.avatarImageView.addTarget(self, action: #selector(headImageViewAction(_:)))
             // 如果有@消息存在时 显示 [有人@我] xxx : @我
             if conversationM.isChatGroupType {
-                let atMeString                  = self.lastAtMeMsgList[conversationM.conversationId!]
+                let atMeString                   = self.lastAtMeMsgList[conversationM.conversationId!]
                 if atMeString != nil {
                     cell.detalLabel.attributedText = atMeString
                 }

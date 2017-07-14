@@ -26,7 +26,7 @@
 }
 
 - (NSString *)userAccount {
-    return [[BKAuthorizationToken shared] easemob_username];;
+    return [[BKAuthorizationToken shared] easemob_username];
 }
 
 + (instancetype)shared {

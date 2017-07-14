@@ -12,9 +12,8 @@ import SwiftyJSON
 /// 用户授权信息的模型
 class BKAuthorizationToken: RLMObject {
 
-    class func shared() ->  BKAuthorizationToken {
+    @objc class func shared() ->  BKAuthorizationToken {
         let  authorization = BKRealmManager.shared().readLoginAuthorization()
-//        print(authorization)
         return authorization ?? BKAuthorizationToken()
     }
     @objc dynamic var session_id : String?
@@ -27,12 +26,10 @@ class BKAuthorizationToken: RLMObject {
     }
 
     convenience init(by json : [String : JSON]) {
-        self.init()
-        
+        self.init()        
         self.session_id         = json["session_id"]?.stringValue
         self.easemob_username   = json["easemob_username"]?.stringValue ?? ""
         self.easemob_password   = json["easemob_password"]?.stringValue ?? ""
         self.expire_at          = json["expire_at"]?.intValue ?? 0
-        
     }
 }
