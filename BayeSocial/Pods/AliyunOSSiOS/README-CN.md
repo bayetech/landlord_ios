@@ -1,12 +1,15 @@
+# Aliyun OSS SDK for iOS
+
+## [README of English](https://github.com/aliyun/aliyun-oss-ios-sdk/blob/master/README.md)
+
 ## 简介
 
 本文档主要介绍OSS iOS SDK的安装和使用。本文档假设您已经开通了阿里云OSS 服务，并创建了Access Key ID 和Access Key Secret。文中的ID 指的是Access Key ID，KEY 指的是Access Key Secret。如果您还没有开通或者还不了解OSS，请登录[OSS产品主页](http://www.aliyun.com/product/oss)获取更多的帮助。
 
-### 环境要求：
+## 环境要求：
 - iOS系统版本：iOS 7.0以上
 - 必须注册有Aliyun.com用户账户，并开通OSS服务。
 
------
 ## 安装
 
 ### 直接引入Framework
@@ -36,7 +39,7 @@ $ cd Products && ls
 如果工程是通过pod管理依赖，那么在Podfile中加入以下依赖即可，不需要再导入framework：
 
 ```
-pod 'AliyunOSSiOS', '~> 2.5.4'
+pod 'AliyunOSSiOS', '~> 2.6.1'
 ```
 
 CocoaPods是一个非常优秀的依赖管理工具，推荐参考官方文档: [CocoaPods安装和使用教程](http://code4app.com/article/cocoapods-install-usage)。
@@ -59,6 +62,17 @@ OSS移动端SDK为了解决无线网络下域名解析容易遭到劫持的问�
 libresolv.tbd
 SystemConfiguration.framework
 ```
+
+### 关于苹果ATS政策
+
+WWDC 2016开发者大会上，苹果宣布从2017年1月1日起，苹果App Store中的所有App都必须启用 App Transport Security(ATS) 安全功能。也就是说，所有的新提交 app 默认是不允许使用`NSAllowsArbitraryLoads`来绕过 ATS 限制的。我们最好保证 app 的所有网络请求都是 HTTPS 加密的，否则可能会在应用审核时遇到麻烦。
+
+本SDK在`2.6.0`以上版本中对此做出支持，其中，SDK不会自行发出任何非HTTPS请求，同时，SDK支持`https://`前缀的`Endpoint`，只需要设置正确的HTTPS `Endpoint`，就能保证发出的网络请求都是符合要求的。
+
+所以，用户需要注意：
+
+* 设置`Endpoint`时，需要使用`https://`前缀的URL。
+* 在实现加签、获取STSToken等回调时，需要确保自己不会发出 非HTTPS 的请求。
 
 ### 对于OSSTask的一些说明
 
@@ -87,7 +101,6 @@ OSSTask * task = [client getObject:get];
 ...
 ```
 
------
 ## 快速入门
 
 以下演示了上传、下载文件的基本流程。更多细节用法可以参考本工程的：
@@ -100,14 +113,12 @@ demo示例: [点击查看](https://github.com/alibaba/alicloud-ios-demo)。
 
 ### STEP-1. 初始化OSSClient
 
-初始化主要完成Endpoint设置、鉴权方式设置、Client参数设置。其中，鉴权方式包含明文设置模式、自签名模式、STS鉴权模式。鉴权细节详见后面链接给出的官网完整文档的`访问控制`章节。
+在移动环境下，我们推荐STS鉴权模式来初始化OSSClient。鉴权细节详见后面链接给出的官网完整文档的`访问控制`章节。
 
 ```objc
-NSString *endpoint = @"http://oss-cn-hangzhou.aliyuncs.com";
+NSString *endpoint = @"https://oss-cn-hangzhou.aliyuncs.com";
 
-// 明文设置secret的方式建议只在测试时使用，更多鉴权模式参考后面链接给出的官网完整文档的`访问控制`章节
-id<OSSCredentialProvider> credential = [[OSSPlainTextAKSKPairCredentialProvider alloc] initWithPlainTextAccessKey:@"<your accesskeyId>"
-                                                                                                        secretKey:@"<your accessKeySecret>"];
+id<OSSCredentialProvider> credential = [[OSSStsTokenCredentialProvider alloc] initWithAccessKeyId:@"<StsToken.AccessKeyId>" secretKeyId:@"<StsToken.SecretKeyId>" securityToken:@"<StsToken.SecurityToken>"];
 
 client = [[OSSClient alloc] initWithEndpoint:endpoint credentialProvider:credential];
 
@@ -176,17 +187,19 @@ OSSTask * getTask = [client getObject:request];
 
 ```
 
------
 ## 完整文档
 
 SDK提供进阶的上传、下载功能、断点续传，以及文件管理、Bucket管理等功能。详见官方完整文档：[点击查看](http://help.aliyun.com/document_detail/oss/sdk/ios-sdk/preface.html?spm=5176.product8314910_oss.4.30.tK2G02)
 
------
+
 ## API文档
 
 [点击查看](http://aliyun.github.io/aliyun-oss-ios-sdk/)
 
------
+## License
+
+* Apache License 2.0.
+
 ## 联系我们
 
 * 阿里云OSS官方网站：http://oss.aliyun.com
@@ -194,25 +207,3 @@ SDK提供进阶的上传、下载功能、断点续传，以及文件管理、Bu
 * 阿里云OSS官方文档中心：http://www.aliyun.com/product/oss#Docs
 * 阿里云官方技术支持 登录OSS控制台 https://home.console.aliyun.com -> 点击"工单系统"
 
------
-## License
-
-Copyright (c) 2015 Aliyun.Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-
-you may not use this file except in compliance with the License.
-
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-
-distributed under the License is distributed on an "AS IS" BASIS,
-
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
-See the License for the specific language governing permissions and
-
-limitations under the License.

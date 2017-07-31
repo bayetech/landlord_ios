@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 ## AliyunOSSiOS
 
-Copyright (c) 2015 zhouzhuo Aliyun inc.
+Copyright (c) 2015 Aliyun inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

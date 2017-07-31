@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (4.4.0)
-  - AliyunOSSiOS (2.6.0)
+  - AliyunOSSiOS (2.6.1)
   - CYPhotosKit (2.6.0)
-  - HandyJSON (1.7.1)
+  - HandyJSON (1.7.2)
   - HyphenateLite (3.3.2)
   - IQKeyboardManagerSwift (4.0.10)
   - Kingfisher (3.4.0)
@@ -31,14 +31,14 @@ DEPENDENCIES:
   - Alamofire (~> 4.4.0)
   - AliyunOSSiOS (~> 2.6.0)
   - CYPhotosKit (~> 2.6.0)
-  - HandyJSON
+  - HandyJSON (~> 1.7.1)
   - HyphenateLite
   - IQKeyboardManagerSwift
   - Kingfisher (~> 3.4.0)
   - MBProgressHUD (~> 1.0.0)
   - MOBFoundation
   - PKHUD (~> 4.2.0)
-  - Realm
+  - Realm (~> 2.8.3)
   - SDWebImage (~> 4.0.0)
   - ShareSDK3
   - ShareSDK3/ShareSDKPlatforms/WeChat
@@ -59,9 +59,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AliyunOSSiOS: 058b038cc82000dadb8f8e3893a97243124f2898
+  AliyunOSSiOS: 8174b695e09b136afe43a6af821c3ca71d423373
   CYPhotosKit: d72aa7a2c98e2ed437464db3a26e5b562d965a1d
-  HandyJSON: 54b6ce942795f7b2e61b82fe73cf25d9f139d125
+  HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
   HyphenateLite: 54ffda162deec2cedf156185a707b86678ae914a
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
@@ -76,6 +76,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   WebViewJavascriptBridge: a4390df79bf622fc068dd035c8b5f67590c0ba05
 
-PODFILE CHECKSUM: 22ac52c5b1aa158ddeaff36e0fd8b76fcd020b97
+PODFILE CHECKSUM: d1ad153c9df6224bab836f02e40a0792095715e5
 
 COCOAPODS: 1.2.1
