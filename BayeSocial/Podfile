@@ -6,21 +6,25 @@ target ‘BayeSocial’ do
 pod 'ShareSDK3'
 pod 'MOBFoundation'
 pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
-pod 'AliyunOSSiOS', '~> 2.6.0'
+pod 'AliyunOSSiOS', '~> 2.6.2'
 pod 'HyphenateLite'
-pod 'WebViewJavascriptBridge', '~> 5.0.7'
-pod 'Alamofire', '~> 4.4.0'
+pod 'WebViewJavascriptBridge', '~> 6.0.2'
+pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git' , :branch => 'swift4'
+
 pod 'SwiftyJSON', '~> 3.1.4'
-pod 'IQKeyboardManagerSwift'
-pod 'Kingfisher', '~> 3.4.0'
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
-pod 'SnapKit', '~> 3.2.0'
-pod 'PKHUD', '~> 4.2.0'
+#pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git' , :branch => 'swift4'
+pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git' , :branch => 'swift4'
+
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift4'
+pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :branch => 'swift-4'
+
+pod 'PKHUD', :git => 'https://github.com/pkluz/PKHUD.git', :branch => 'release/swift4'
 pod 'MBProgressHUD', '~> 1.0.0'
-pod 'HandyJSON', '~> 1.7.1'
-pod 'Realm', '~> 2.8.3'
-pod 'SDWebImage', '~> 4.0.0'
-pod 'CYPhotosKit', '~> 2.6.0'
+pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git' , :branch => 'dev_for_swift4.0'
+
+ pod 'Realm'
+ pod 'SDWebImage', '~> 4.0.0'
+pod 'CYPhotosKit', '~> 2.7.0'
 
 end
 

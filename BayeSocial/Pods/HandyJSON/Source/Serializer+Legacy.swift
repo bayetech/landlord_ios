@@ -129,13 +129,13 @@ extension GenericObjectTransformer {
             }
 
             var dict = [String: Any]()
-            children.enumerated().forEach({ (index, element) in
+            for (_, element) in children.enumerated() {
                 let key = element.label ?? ""
                 let handledValue = transformToSimpleObject(object: element.value)
                 if key != "" && handledValue != nil {
                     dict[key] = handledValue
                 }
-            })
+            }
 
             return dict as Any
         case .enum:
@@ -149,29 +149,29 @@ extension GenericObjectTransformer {
             }
         case .collection, .set:
             var array = [Any]()
-            mirror.children.enumerated().forEach({ (index, element) in
+            for (_, element) in mirror.children.enumerated() {
                 if let transformValue = transformToSimpleObject(object: element.value) {
                     array.append(transformValue)
                 }
-            })
+            }
             return array as Any
         case .dictionary:
             var dict = [String: Any]()
-            mirror.children.enumerated().forEach({ (index, element) in
+            for (_, element) in mirror.children.enumerated() {
                 let _mirror = Mirror(reflecting: element.value)
                 var key: String?
                 var value: Any?
-                _mirror.children.enumerated().forEach({ (_index, _element) in
+                for (_index, _element) in _mirror.children.enumerated() {
                     if _index == 0 {
                         key = "\(_element.value)"
                     } else {
                         value = transformToSimpleObject(object: _element.value)
                     }
-                })
+                }
                 if (key ?? "") != "" && value != nil {
                     dict[key!] = value!
                 }
-            })
+            }
             return dict as Any
         default:
             return object
@@ -191,22 +191,22 @@ extension GenericObjectTransformer {
         case is Array<Any>.Type:
             let array = object as! Array<Any>
             var json = ""
-            array.enumerated().forEach({ (index, element) in
+            for (index, element) in array.enumerated() {
                 if index != 0 {
                     json += ","
                 }
                 json += transformSimpleObjectToJSON(object: element)
-            })
+            }
             return "[" + json + "]"
         case is Dictionary<String, Any>.Type:
             let dict = object as! [String: Any]
             var json = ""
-            dict.enumerated().forEach({ (index, kv) in
+            for (index, kv) in dict.enumerated() {
                 if index != 0 {
                     json += ","
                 }
                 json += "\"\(kv.key)\":\(transformSimpleObjectToJSON(object: kv.value))"
-            })
+            }
             return "{" + json + "}"
         default:
             return "\"\(String(describing: object))\""

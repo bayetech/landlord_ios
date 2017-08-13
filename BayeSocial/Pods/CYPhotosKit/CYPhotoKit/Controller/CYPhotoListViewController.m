@@ -19,8 +19,8 @@ static CGFloat const itemMarigin = 5.0f;
 
 @property (nonatomic,strong) PHCachingImageManager *imageManager;
 @property (nonatomic,assign) CGSize                itemSize;
-@property (nonatomic,strong) NSMutableDictionary   *cacheSelectItems;
-@property (nonatomic,strong) NSMutableDictionary   *selectAssetDictionary;
+@property (nonatomic,strong) NSMutableDictionary  <NSString *,NSNumber *> *cacheSelectItems;
+@property (nonatomic,strong) NSMutableDictionary  <NSString *,PHAsset *> *selectAssetDictionary;
 @property (nonatomic,strong) UIView                *bottomView;
 @property (nonatomic,assign) BOOL                  needScrollToBottom;
 @property (nonatomic,assign) NSInteger  maxCount;
@@ -59,7 +59,6 @@ static CGFloat const itemMarigin = 5.0f;
     self.maxCount                            = nav.maxPickerImageCount;
     self.maxImageLabel.text                  = [NSString stringWithFormat:@"最多可选取%@张相片",@(self.maxCount)];
 
-    [self reloadBottomViewStatus];
     
 }
 
@@ -94,26 +93,31 @@ static CGFloat const itemMarigin = 5.0f;
 - (NSMutableArray *)getSelectImagesArray {
     
     __block   NSMutableArray *array = [NSMutableArray array];
-    [self.selectAssetDictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, CYPhotosAsset *photosAsset, BOOL * _Nonnull stop) {
-        [array addObject:photosAsset];
-    }];
+    [[CYPhotosManager defaultManager].selectImages removeAllObjects];
+    
+    for (PHAsset *asset in self.selectAssetDictionary.allValues) {
+        CYPhotosAsset *photoAsset = [[CYPhotosAsset alloc] initWithAsset:asset];
+        [array addObject:photoAsset];
+        [CYPhotosManager defaultManager].selectImages[photoAsset.asset.localIdentifier]      = photoAsset;
+    }
+    
     return  array;
 }
 
-- (NSMutableDictionary *)cacheSelectItems {
+- (NSMutableDictionary<NSString *,NSNumber *> *)cacheSelectItems {
     if (!_cacheSelectItems) {
         _cacheSelectItems = [NSMutableDictionary dictionary];
     }
     return _cacheSelectItems;
+
 }
 
-- (NSMutableDictionary *)selectAssetDictionary {
+- (NSMutableDictionary<NSString *,PHAsset *> *)selectAssetDictionary {
     if (!_selectAssetDictionary) {
         _selectAssetDictionary = [NSMutableDictionary dictionary];
     }
     return _selectAssetDictionary;
 }
-
 - (PHCachingImageManager *)imageManager {
     if (!_imageManager) {
         _imageManager = [[PHCachingImageManager alloc] init];
@@ -129,11 +133,6 @@ static CGFloat const itemMarigin = 5.0f;
     return _bottomView;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.collectionView reloadData];
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -146,19 +145,44 @@ static CGFloat const itemMarigin = 5.0f;
 }
 
 - (void)setFetchResult:(PHFetchResult<PHAsset *> *)fetchResult {
-    _fetchResult    = fetchResult;
+    _fetchResult            = fetchResult;
     
     __weak typeof(self)weakSelf = self;
-    
-    void (^block) () = ^ {
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
         __strong typeof(weakSelf)strongSelf = weakSelf;
-        for (int i=0; i<_fetchResult.count; i++) {
-            NSString *key = [NSString stringWithFormat:@"%d",i];
-            [strongSelf.cacheSelectItems setObject:@"0" forKey:key];
+
+        CFTimeInterval start = CFAbsoluteTimeGetCurrent();
+        
+        NSDictionary <NSString *,CYPhotosAsset *>*selectItems    = [CYPhotosManager defaultManager].selectImages;
+        
+        NSInteger fetchCount = _fetchResult.count;
+        for (int i=0; i<fetchCount; i++) {
+            
+            PHAsset *photoAsset         = [_fetchResult objectAtIndex:i];
+            NSString *key               = [NSString stringWithFormat:@"%zd",i];
+            BOOL isSelect               = NO;
+            
+            // 选择过的资源
+            CYPhotosAsset *selectAsset  = [selectItems objectForKey:photoAsset.localIdentifier];
+            if (selectAsset && [selectAsset.asset.localIdentifier isEqualToString:photoAsset.localIdentifier]) {
+                self.selectAssetDictionary[key] = photoAsset;
+                isSelect = YES;
+            }
+            
+            [strongSelf.cacheSelectItems setObject:[NSNumber numberWithBool:isSelect] forKey:key];
+            
         }
-    };
+        
+        CFTimeInterval end = CFAbsoluteTimeGetCurrent();
+        NSLog(@"time = %f",end-start);
+        
+        [self performSelectorOnMainThread:@selector(reloadBottomViewStatus) withObject:nil waitUntilDone:YES];
+        
+    });
     
-    dispatch_global_safe(block);
+    
     
 }
 
@@ -219,28 +243,24 @@ static CGFloat const itemMarigin = 5.0f;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     PHAsset *asset             = [self.fetchResult objectAtIndex:indexPath.item];
-    CYPhotosAsset *photosAsset = [CYPhotosAsset new];
-    photosAsset.asset          = asset;
     
     NSString *key              = [NSString stringWithFormat:@"%@",@(indexPath.item)];
     BOOL isSelect              = ![self.cacheSelectItems[key] boolValue];
-    NSString *flag             = nil;
+    BOOL flag                  = NO;
     if (isSelect) {
         if (self.selectAssetDictionary.count<= self.maxCount - 1) {
-            self.selectAssetDictionary[key] = photosAsset;
-            flag                            = @"1";
+            self.selectAssetDictionary[key] = asset;
+            flag                            = YES;
             [self reloadBottomViewStatus];
         } else {
-            flag = @"0";
             [self showAlertView];
         }
     } else {
-        flag = @"0";
         [self.selectAssetDictionary removeObjectForKey:key];
         [self reloadBottomViewStatus];
     }
     
-    self.cacheSelectItems[key]             = flag;
+    self.cacheSelectItems[key]             = [NSNumber numberWithBool:flag];
     
     CYPhotosCollectionViewCell *photosCell = (CYPhotosCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
     

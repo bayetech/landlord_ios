@@ -176,7 +176,7 @@ extension PlainJSONValue {
 }
 
 // MARK: 基本类型 - 整型
-protocol IntegerPropertyProtocol: Integer, PlainJSONValue {
+protocol IntegerPropertyProtocol: FixedWidthInteger, PlainJSONValue {
     init?(_ text: String, radix: Int)
     init(_ number: NSNumber)
 }
@@ -229,7 +229,7 @@ extension Bool: PlainJSONValue {
     }
 }
 
-protocol FloatPropertyProtocol: _JSONTransformable, PlainJSONValue, LosslessStringConvertible {
+protocol FloatPropertyProtocol: PlainJSONValue, LosslessStringConvertible {
     init(_ number: NSNumber)
 }
 

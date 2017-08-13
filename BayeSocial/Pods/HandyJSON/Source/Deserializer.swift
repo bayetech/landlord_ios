@@ -37,6 +37,13 @@ fileprivate func getSubObject(inside jsonObject: NSObject?, by designatedPath: S
     return abort ? nil : nodeValue
 }
 
+// this's a workaround before https://bugs.swift.org/browse/SR-5223 fixed
+extension NSObject {
+    static func createInstance() -> NSObject {
+        return self.init()
+    }
+}
+
 extension _PropertiesMappable {
 
     static func _transform(rawPointer: UnsafeMutableRawPointer, property: Property.Description, dict: NSDictionary, mapper: HelpingMapper) {
@@ -97,7 +104,12 @@ extension _PropertiesMappable {
     }
 
     static func _transform(dict: NSDictionary, toType: _PropertiesMappable.Type) -> _PropertiesMappable? {
-        var instance = toType.init()
+        var instance: _PropertiesMappable
+        if let _nsType = toType as? NSObject.Type {
+            instance = _nsType.createInstance() as! _PropertiesMappable
+        } else {
+            instance = toType.init()
+        }
 
         guard let properties = getProperties(forType: toType) else {
             InternalLogger.logDebug("Failed when try to get properties from type: \(type(of: toType))")

@@ -57,7 +57,9 @@ class BYContactViewController: UIViewController {
         tableView.backgroundColor       = UIColor.RGBColor(243.0, green: 243.0, blue: 243.0)
         tableView.register(UINib(nibName: "BYContactTableViewCell", bundle: nil), forCellReuseIdentifier: "BYContactTableViewCell")
         tableView.tableFooterView       = UIView(frame: CGRect(x: 0.0, y: 0.0, width: KScreenWidth, height: 30.0))
+
         let contactHeadView                         = BYContactHeadView.viewFromNib() as! BYContactHeadView
+
         self.tableView.tableHeaderView              = contactHeadView
         contactHeadView.snp.makeConstraints {[unowned self] (make) in
             make.top.equalTo(self.tableView.snp.top)
@@ -226,9 +228,7 @@ extension BYContactViewController : BYContactHeadViewDelegate {
      /// 选择了添加的按钮
     func by_ContactHeadView(_ didSelectAddBtn: BYContactHeadView) {
         
-        guard self.popoverView == nil else {
-            return
-        }
+        guard self.popoverView == nil else { return }
         
         let popoverView                     = BYContactPopoverView.viewFromNib() as! BYContactPopoverView
         self.view.addSubview(popoverView)

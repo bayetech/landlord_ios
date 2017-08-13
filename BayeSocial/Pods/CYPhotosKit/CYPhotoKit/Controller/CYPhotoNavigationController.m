@@ -53,7 +53,8 @@
  */
 - (void)didFinished:(NSNotification *)noti {
     
-    NSArray *array = noti.object;
+    NSArray <CYPhotosAsset *>*array = noti.object;
+    
     if ([self.delegate respondsToSelector:@selector(cyPhotoNavigationController:didFinishedSelectPhotos:)]) {
         [self.delegate cyPhotoNavigationController:self didFinishedSelectPhotos:array];
     }

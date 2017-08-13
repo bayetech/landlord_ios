@@ -1,6 +1,5 @@
                                                                                                                                                                                                  
 import UIKit
-import IQKeyboardManagerSwift
 
 let AppID                      = "wxc9587e307525b637"
 let APP_SECRET                 = "6662f3c75ca7d9f43ce4411dbedbc049"
@@ -41,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
               
         // 配置 Realm 数据库
         BKRealmManager.realmConfiguration()
-        
-        IQKeyboardManager.sharedManager().enable                = true
 
         // 初始化环信 SDK 的配置
         initializeEaseMobSDKWithOptions(application, launchOptions: launchOptions)
@@ -84,16 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     
     /// 是否显示版本新特性页面
     func needShowLoadingPage() -> Bool {
-        
         let currentVersion      = UnitTools.appCurrentVersion()
         let lastVersion         = UserDefaults.standard.object(forKey: "LoadPage")
         guard lastVersion != nil else {
             UserDefaults.standard.set(currentVersion, forKey: "LoadPage")
             return true
         }
-        
         return false
-
     }
     
     /// 添加一个延时加载启动页的图片

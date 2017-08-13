@@ -40,11 +40,11 @@ if ([NSThread isMainThread]) {\
 // DEBUG模式下进行调试打印
 
 // 输出结果标记出所在类方法与行数
-#define BKLog(fmt, ...)   NSLog((@"\n%s[Line: %d]™ ->" fmt), strrchr(__FUNCTION__,'['), __LINE__, ##__VA_ARGS__)
+#define DLog(fmt, ...)   NSLog((@"\n%s[Line: %d]™ ->" fmt), strrchr(__FUNCTION__,'['), __LINE__, ##__VA_ARGS__)
 
 #else
 
-#define BKLog(...)   {}
+#define DLog(...)   {}
 
 #endif
 

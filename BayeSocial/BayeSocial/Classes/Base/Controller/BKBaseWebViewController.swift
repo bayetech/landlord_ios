@@ -57,7 +57,7 @@ class BKBaseWebViewController: BKBaseViewController {
      */
     func getReqeust(_ url : URL) -> NSMutableURLRequest {
         
-        let mutalbeReqeuset                 = NSMutableURLRequest(url: url, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 15.0)
+        let mutalbeReqeuset                 = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 15.0)
         var reqesutHeader                   = "bayekeji"
         if userDidLogin {
             reqesutHeader                   = "\(userToken!)"

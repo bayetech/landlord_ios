@@ -1,81 +1,108 @@
 PODS:
   - Alamofire (4.4.0)
-  - AliyunOSSiOS (2.6.1)
-  - CYPhotosKit (2.6.0)
+  - AliyunOSSiOS (2.6.2)
+  - CYPhotosKit (2.7.0)
   - HandyJSON (1.7.2)
-  - HyphenateLite (3.3.2)
-  - IQKeyboardManagerSwift (4.0.10)
-  - Kingfisher (3.4.0)
+  - HyphenateLite (3.3.4.1)
+  - Kingfisher (3.10.4)
   - MBProgressHUD (1.0.0)
-  - MOBFoundation (3.0.0)
+  - MOBFoundation (3.0.2)
   - PKHUD (4.2.3)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
+  - Realm (2.9.1):
+    - Realm/Headers (= 2.9.1)
+  - Realm/Headers (2.9.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - ShareSDK3 (4.0.0.1):
+  - ShareSDK3 (4.0.1):
     - MOBFoundation
-    - ShareSDK3/ShareSDK (= 4.0.0.1)
-  - ShareSDK3/ShareSDK (4.0.0.1):
+    - ShareSDK3/ShareSDK (= 4.0.1)
+  - ShareSDK3/ShareSDK (4.0.1):
     - MOBFoundation
-  - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.0.1):
+  - ShareSDK3/ShareSDKPlatforms/WeChat (4.0.1):
     - MOBFoundation
   - SnapKit (3.2.0)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
-  - WebViewJavascriptBridge (5.0.9)
+  - WebViewJavascriptBridge (6.0.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4.0)
-  - AliyunOSSiOS (~> 2.6.0)
-  - CYPhotosKit (~> 2.6.0)
-  - HandyJSON (~> 1.7.1)
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift4`)
+  - AliyunOSSiOS (~> 2.6.2)
+  - CYPhotosKit (~> 2.7.0)
+  - HandyJSON (from `https://github.com/alibaba/HandyJSON.git`, branch `dev_for_swift4.0`)
   - HyphenateLite
-  - IQKeyboardManagerSwift
-  - Kingfisher (~> 3.4.0)
+  - Kingfisher (from `https://github.com/onevcat/Kingfisher.git`, branch `swift4`)
   - MBProgressHUD (~> 1.0.0)
   - MOBFoundation
-  - PKHUD (~> 4.2.0)
-  - Realm (~> 2.8.3)
+  - PKHUD (from `https://github.com/pkluz/PKHUD.git`, branch `release/swift4`)
+  - Realm
   - SDWebImage (~> 4.0.0)
   - ShareSDK3
   - ShareSDK3/ShareSDKPlatforms/WeChat
-  - SnapKit (~> 3.2.0)
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift4`)
   - SwiftyJSON (~> 3.1.4)
-  - WebViewJavascriptBridge (~> 5.0.7)
+  - WebViewJavascriptBridge (~> 6.0.2)
 
 EXTERNAL SOURCES:
+  Alamofire:
+    :branch: swift4
+    :git: https://github.com/Alamofire/Alamofire.git
+  HandyJSON:
+    :branch: dev_for_swift4.0
+    :git: https://github.com/alibaba/HandyJSON.git
+  Kingfisher:
+    :branch: swift4
+    :git: https://github.com/onevcat/Kingfisher.git
+  PKHUD:
+    :branch: release/swift4
+    :git: https://github.com/pkluz/PKHUD.git
+  SnapKit:
+    :branch: swift-4
+    :git: https://github.com/SnapKit/SnapKit.git
   Spring:
-    :branch: swift3
+    :branch: swift4
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: 9d6d16316edfb8ece47abebe1621d05ee6b0e6ed
+    :git: https://github.com/Alamofire/Alamofire.git
+  HandyJSON:
+    :commit: 03d33004d0732a0e333d6f23dae8286011ddbe72
+    :git: https://github.com/alibaba/HandyJSON.git
+  Kingfisher:
+    :commit: abc208e8609f52058d56f8e8331538c4fcc2b779
+    :git: https://github.com/onevcat/Kingfisher.git
+  PKHUD:
+    :commit: 4d8fbf70ae912dd72280cde0a5c1440ada9a7306
+    :git: https://github.com/pkluz/PKHUD.git
+  SnapKit:
+    :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
+    :git: https://github.com/SnapKit/SnapKit.git
   Spring:
-    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
+    :commit: b65cb00a1adc7e810e2ad10b174b840b6d520ac3
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AliyunOSSiOS: 8174b695e09b136afe43a6af821c3ca71d423373
-  CYPhotosKit: d72aa7a2c98e2ed437464db3a26e5b562d965a1d
-  HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
-  HyphenateLite: 54ffda162deec2cedf156185a707b86678ae914a
-  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
-  Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
+  Alamofire: 4c2bf7fa03c4a626163606de0a417568c270575e
+  AliyunOSSiOS: 602bc287cfa30a2a6375907e684ec66d0c45e3f1
+  CYPhotosKit: ba75cd7d194fabe2c5235f3f015e0750340bd328
+  HandyJSON: a881311ac1fd21aec4d6ac7484baa7a99cdd91ac
+  HyphenateLite: 19e216404a15ed9b41906da00e2c1a7012e816a6
+  Kingfisher: dbfac2b5dec4a531822e0ba8b571ce6010616075
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MOBFoundation: e6572a62983a44fa048c4038842ade1494c10059
-  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  MOBFoundation: d5e27c4638d911d3c7501aa5df458955d4814359
+  PKHUD: 351011b853e6b942e7ee8ad335864cc84c787241
+  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  ShareSDK3: e0465c9ffdf806ab97c27f4397fd7deca600ede9
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  ShareSDK3: 6983a9b5209b63f2f4297fb0328d9a8dd6abd5f1
+  SnapKit: c71c530b73cedd2a8b998098687001baff265086
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  WebViewJavascriptBridge: a4390df79bf622fc068dd035c8b5f67590c0ba05
+  WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
 
-PODFILE CHECKSUM: d1ad153c9df6224bab836f02e40a0792095715e5
+PODFILE CHECKSUM: 78edb9f55f6af1a5becf89063c0bf8a318e8125c
 
 COCOAPODS: 1.2.1

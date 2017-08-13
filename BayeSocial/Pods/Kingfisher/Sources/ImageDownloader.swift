@@ -108,6 +108,14 @@ public protocol ImageDownloaderDelegate: class {
     */
     func imageDownloader(_ downloader: ImageDownloader, didDownload image: Image, for url: URL, with response: URLResponse?)
     
+    /**
+    Called when the `ImageDownloader` object starts to download an image from specified URL.
+     
+    - parameter downloader: The `ImageDownloader` object starts the downloading.
+    - parameter url:        URL of the original request.
+    - parameter response:   The request object of the downloading process.
+    */
+    func imageDownloader(_ downloader: ImageDownloader, willDownloadImageForURL url: URL, with request: URLRequest?)
     
     /**
     Check if a received HTTP status code is valid or not. 
@@ -129,6 +137,7 @@ public protocol ImageDownloaderDelegate: class {
 extension ImageDownloaderDelegate {
     public func imageDownloader(_ downloader: ImageDownloader, didDownload image: Image, for url: URL, with response: URLResponse?) {}
     
+    public func imageDownloader(_ downloader: ImageDownloader, willDownloadImageForURL url: URL, with request: URLRequest?) {}
     public func isValidStatusCode(_ code: Int, for downloader: ImageDownloader) -> Bool {
         return (200..<400).contains(code)
     }
@@ -174,6 +183,7 @@ open class ImageDownloader {
 
         var downloadTaskCount = 0
         var downloadTask: RetrieveImageDownloadTask?
+        var cancelSemaphore: DispatchSemaphore?
     }
     
     // MARK: - Public property
@@ -189,12 +199,13 @@ open class ImageDownloader {
     /// You could change the configuration before a downloaing task starts. A configuration without persistent storage for caches is requsted for downloader working correctly.
     open var sessionConfiguration = URLSessionConfiguration.ephemeral {
         didSet {
+            session?.invalidateAndCancel()
             session = URLSession(configuration: sessionConfiguration, delegate: sessionHandler, delegateQueue: OperationQueue.main)
         }
     }
     
     /// Whether the download requests should use pipeling or not. Default is false.
-    open var requestsUsePipeling = false
+    open var requestsUsePipelining = false
     
     fileprivate let sessionHandler: ImageDownloaderSessionHandler
     fileprivate var session: URLSession?
@@ -209,6 +220,7 @@ open class ImageDownloader {
     // MARK: - Internal property
     let barrierQueue: DispatchQueue
     let processQueue: DispatchQueue
+    let cancelQueue: DispatchQueue
     
     typealias CallbackPair = (progressBlock: ImageDownloaderProgressBlock?, completionHandler: ImageDownloaderCompletionHandler?)
     
@@ -232,6 +244,7 @@ open class ImageDownloader {
         
         barrierQueue = DispatchQueue(label: "com.onevcat.Kingfisher.ImageDownloader.Barrier.\(name)", attributes: .concurrent)
         processQueue = DispatchQueue(label: "com.onevcat.Kingfisher.ImageDownloader.Process.\(name)", attributes: .concurrent)
+        cancelQueue = DispatchQueue(label: "com.onevcat.Kingfisher.ImageDownloader.Cancel.\(name)")
         
         sessionHandler = ImageDownloaderSessionHandler()
 
@@ -240,9 +253,13 @@ open class ImageDownloader {
         session = URLSession(configuration: sessionConfiguration, delegate: sessionHandler, delegateQueue: .main)
     }
     
+    deinit {
+        session?.invalidateAndCancel()
+    }
+    
     func fetchLoad(for url: URL) -> ImageFetchLoad? {
         var fetchLoad: ImageFetchLoad?
-        barrierQueue.sync { fetchLoad = fetchLoads[url] }
+        barrierQueue.sync(flags: .barrier) { fetchLoad = fetchLoads[url] }
         return fetchLoad
     }
     
@@ -250,6 +267,7 @@ open class ImageDownloader {
      Download an image with a URL and option.
      
      - parameter url:               Target URL.
+     - parameter retrieveImageTask: The task to cooporate with cache. Pass `nil` if you are not trying to use downloader and cache.
      - parameter options:           The options could control download behavior. See `KingfisherOptionsInfo`.
      - parameter progressBlock:     Called when the download progress updated.
      - parameter completionHandler: Called when the download progress finishes.
@@ -258,25 +276,10 @@ open class ImageDownloader {
      */
     @discardableResult
     open func downloadImage(with url: URL,
-                            options: KingfisherOptionsInfo? = nil,
-                            progressBlock: ImageDownloaderProgressBlock? = nil,
-                            completionHandler: ImageDownloaderCompletionHandler? = nil) -> RetrieveImageDownloadTask?
-    {
-        return downloadImage(with: url,
-                             retrieveImageTask: nil,
-                             options: options,
-                             progressBlock: progressBlock,
-                             completionHandler: completionHandler)
-    }
-}
-
-// MARK: - Download method
-extension ImageDownloader {
-    func downloadImage(with url: URL,
-              retrieveImageTask: RetrieveImageTask?,
-                        options: KingfisherOptionsInfo?,
-                  progressBlock: ImageDownloaderProgressBlock?,
-              completionHandler: ImageDownloaderCompletionHandler?) -> RetrieveImageDownloadTask?
+                       retrieveImageTask: RetrieveImageTask? = nil,
+                       options: KingfisherOptionsInfo? = nil,
+                       progressBlock: ImageDownloaderProgressBlock? = nil,
+                       completionHandler: ImageDownloaderCompletionHandler? = nil) -> RetrieveImageDownloadTask?
     {
         if let retrieveImageTask = retrieveImageTask, retrieveImageTask.cancelledBeforeDownloadStarting {
             completionHandler?(nil, NSError(domain: KingfisherErrorDomain, code: KingfisherError.downloadCancelledBeforeStarting.rawValue, userInfo: nil), nil, nil)
@@ -287,7 +290,7 @@ extension ImageDownloader {
         
         // We need to set the URL as the load key. So before setup progress, we need to ask the `requestModifier` for a final URL.
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: timeout)
-        request.httpShouldUsePipelining = requestsUsePipeling
+        request.httpShouldUsePipelining = requestsUsePipelining
 
         if let modifier = options?.modifier {
             guard let r = modifier.modified(for: request) else {
@@ -309,9 +312,10 @@ extension ImageDownloader {
                 let dataTask = session.dataTask(with: request)
                 
                 fetchLoad.downloadTask = RetrieveImageDownloadTask(internalTask: dataTask, ownerDownloader: self)
-
+                
                 dataTask.priority = options?.downloadPriority ?? URLSessionTask.defaultPriority
                 dataTask.resume()
+                self.delegate?.imageDownloader(self, willDownloadImageForURL: url, with: request)
                 
                 // Hold self while the task is executing.
                 self.sessionHandler.downloadHolder = self
@@ -325,25 +329,45 @@ extension ImageDownloader {
         return downloadTask
     }
     
-    // A single key may have multiple callbacks. Only download once.
-    func setup(progressBlock: ImageDownloaderProgressBlock?, with completionHandler: ImageDownloaderCompletionHandler?, for url: URL, options: KingfisherOptionsInfo?, started: ((URLSession, ImageFetchLoad) -> Void)) {
+}
 
-        barrierQueue.sync(flags: .barrier) {
-            let loadObjectForURL = fetchLoads[url] ?? ImageFetchLoad()
-            let callbackPair = (progressBlock: progressBlock, completionHandler: completionHandler)
-            
-            loadObjectForURL.contents.append((callbackPair, options ?? KingfisherEmptyOptionsInfo))
-            
-            fetchLoads[url] = loadObjectForURL
-            
-            if let session = session {
-                started(session, loadObjectForURL)
+// MARK: - Download method
+extension ImageDownloader {
+    
+    // A single key may have multiple callbacks. Only download once.
+    func setup(progressBlock: ImageDownloaderProgressBlock?, with completionHandler: ImageDownloaderCompletionHandler?, for url: URL, options: KingfisherOptionsInfo?, started: @escaping ((URLSession, ImageFetchLoad) -> Void)) {
+
+        func prepareFetchLoad() {
+            barrierQueue.sync(flags: .barrier) {
+                let loadObjectForURL = fetchLoads[url] ?? ImageFetchLoad()
+                let callbackPair = (progressBlock: progressBlock, completionHandler: completionHandler)
+                
+                loadObjectForURL.contents.append((callbackPair, options ?? KingfisherEmptyOptionsInfo))
+                
+                fetchLoads[url] = loadObjectForURL
+                
+                if let session = session {
+                    started(session, loadObjectForURL)
+                }
             }
+        }
+        
+        if let fetchLoad = fetchLoad(for: url), fetchLoad.downloadTaskCount == 0 {
+            if fetchLoad.cancelSemaphore == nil {
+                fetchLoad.cancelSemaphore = DispatchSemaphore(value: 0)
+            }
+            cancelQueue.async {
+                _ = fetchLoad.cancelSemaphore?.wait(timeout: .distantFuture)
+                fetchLoad.cancelSemaphore = nil
+                prepareFetchLoad()
+            }
+        } else {
+            prepareFetchLoad()
         }
     }
     
     func cancelDownloadingTask(_ task: RetrieveImageDownloadTask) {
-        barrierQueue.sync {
+        barrierQueue.sync(flags: .barrier) {
             if let URL = task.internalTask.originalRequest?.url, let imageFetchLoad = self.fetchLoads[URL] {
                 imageFetchLoad.downloadTaskCount -= 1
                 if imageFetchLoad.downloadTaskCount == 0 {
@@ -458,6 +482,11 @@ class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Authentic
         // We need to clean the fetch load first, before actually calling completion handler.
         cleanFetchLoad(for: url)
         
+        var leftSignal: Int
+        repeat {
+            leftSignal = fetchLoad.cancelSemaphore?.signal() ?? 0
+        } while leftSignal != 0
+        
         for content in fetchLoad.contents {
             content.options.callbackDispatchQueue.safeAsync {
                 content.callback.completionHandler?(nil, error as NSError, url, nil)
@@ -496,7 +525,6 @@ class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Authentic
                 var image = imageCache[processor.identifier]
                 if image == nil {
                     image = processor.process(item: .data(data), options: options)
-                    
                     // Add the processed image to cache. 
                     // If `image` is nil, nothing will happen (since the key is not existing before).
                     imageCache[processor.identifier] = image
@@ -530,3 +558,4 @@ class ImageDownloaderSessionHandler: NSObject, URLSessionDataDelegate, Authentic
 
 // Placeholder. For retrieving extension methods of ImageDownloaderDelegate
 extension ImageDownloader: ImageDownloaderDelegate {}
+

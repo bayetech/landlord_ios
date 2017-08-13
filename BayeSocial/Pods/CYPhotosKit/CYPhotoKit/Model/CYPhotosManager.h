@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-@class CYPhotosCollection;
+
+@class CYPhotosCollection , CYPhotosAsset;
 
 /**
  *  照片资源获取的管理者
@@ -35,5 +36,20 @@
  */
 - (NSMutableArray <CYPhotosCollection *>*_Nullable)requestTopLevelUserCollections;
 
+
+/**
+ 移除掉已经选择过的图片
+ */
+- (void) removeSelectPhotoForKey:(NSString *_Nullable)localIdentifier;
+
+/**
+ 已经选择过的图片数组
+ */
+@property (nonatomic,strong) NSMutableDictionary <NSString *,CYPhotosAsset *>* _Nullable selectImages;
+
+/**
+ 清空所有已经选择过图片数组
+ */
+- (void)emptySelectedList;
 
 @end

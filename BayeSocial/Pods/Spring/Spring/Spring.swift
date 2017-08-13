@@ -68,7 +68,7 @@ public class Spring : NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
-    func didBecomeActiveNotification(_ notification: NSNotification) {
+    @objc func didBecomeActiveNotification(_ notification: NSNotification) {
         if shouldAnimateAfterActive {
             alpha = 0
             animate()
@@ -262,7 +262,7 @@ public class Spring : NSObject {
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(0, 0, 0, 0))
                 animation.toValue = NSValue(caTransform3D:
-                    CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat.pi, 0, 1, 0)))
+                    CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(CGFloat.pi), 0, 1, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
@@ -276,7 +276,7 @@ public class Spring : NSObject {
                 animation.fromValue = NSValue(caTransform3D:
                     CATransform3DMakeRotation(0, 0, 0, 0))
                 animation.toValue = NSValue(caTransform3D:
-                    CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat.pi, 1, 0, 0)))
+                    CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(CGFloat.pi), 1, 0, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)

@@ -17,10 +17,11 @@ class BKNavigaitonController: UINavigationController {
         super.viewDidLoad()
         
         let navBar                       = UINavigationBar.appearance();
-        navBar.titleTextAttributes      = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font.rawValue : UIFont.systemFont(ofSize: 18.0)];
-        navBar.tintColor                = UIColor.colorWithHexString("#1E3044")
-        let attributeds                 = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#1E3044")]
+        navBar.titleTextAttributes       = [NSAttributedStringKey.foregroundColor: UIColor.colorWithHexString("#333333"),NSAttributedStringKey.font : UIFont.systemFont(ofSize: 18.0)];
+        navBar.tintColor                 = UIColor.colorWithHexString("#1E3044")
+        let attributeds                  = [NSAttributedStringKey.foregroundColor : UIColor.colorWithHexString("#1E3044")]
         UIBarButtonItem.appearance().setTitleTextAttributes(attributeds, for: .normal)
+        
     }
     
 

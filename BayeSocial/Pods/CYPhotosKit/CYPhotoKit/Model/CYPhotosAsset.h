@@ -14,7 +14,7 @@
 @interface CYPhotosAsset : NSObject
 
 /** 代表一个图片或者视频 */
-@property (nonatomic,strong,nullable) PHAsset *asset;
+@property (nonatomic,strong,nullable,readonly) PHAsset *asset;
 
 /** 缩略图  */
 @property (nonatomic,strong,nullable) UIImage *thumbnail;
@@ -31,5 +31,16 @@
  *  是否选中图片
  */
 @property (nonatomic,assign,getter =isSelectImage) BOOL selectImage;
+
+
+/**
+ 图片在 Asset 中的唯一表示 通过这个标识找到某个图片
+ */
+@property (nonatomic,copy,readonly,nullable) NSString *localIdentifier;
+
+/**
+ 初始化并传递一个 PHAsset 对象
+ */
+- (instancetype _Nonnull) initWithAsset:(PHAsset *_Nullable)asset;
 
 @end

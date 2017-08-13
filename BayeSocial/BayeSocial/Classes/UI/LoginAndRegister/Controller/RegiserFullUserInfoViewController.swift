@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-import IQKeyboardManagerSwift
 import PKHUD
 import CYPhotosKit
 
@@ -32,8 +31,7 @@ class RegiserFullUserInfoViewController: UIViewController {
         
         self.setup()
         self.view.backgroundColor                               = UIColor.white
-        IQKeyboardManager.sharedManager().enableAutoToolbar     = false
-        
+
     }
     
     /// 姓名输入框内容发送了改变
@@ -53,7 +51,6 @@ class RegiserFullUserInfoViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        IQKeyboardManager.sharedManager().enableAutoToolbar     = true
     }
     
     func setup() {

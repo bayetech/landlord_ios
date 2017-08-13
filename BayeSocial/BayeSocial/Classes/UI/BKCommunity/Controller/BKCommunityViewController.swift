@@ -100,12 +100,10 @@ class BKCommunityViewController: BKBaseWebViewController , UIScrollViewDelegate 
         self.wkWebView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
-    
         self.automaticallyAdjustsScrollViewInsets = false
         self.title                                = "巴圈"
     
     }
-    
     
     /// 点击封面更换封面
     @objc func backgroundClick(_ tap : UITapGestureRecognizer)  {
@@ -161,32 +159,25 @@ class BKCommunityViewController: BKBaseWebViewController , UIScrollViewDelegate 
      刷新首页数据,适用于每次切换到社区页面时
      */
     func reloadHome() {
-        
         removeWebViewCaches()
         let mutableReqeust = getReqeust(URL(string: KHubsWebViewURL)!)
         self.wkWebView.load(mutableReqeust as URLRequest)
-        
-        
     }
-
     /**
      刷新 WebView
      */
     func reloadWebView() {
         self.wkWebView.reload()
     }
-    
     /**
      是否显示 leftButtonItem
      */
     @objc func webViewBack() {
-        
         guard self.wkWebView.canGoBack  else {
             let _ = self.navigationController?.popViewController(animated: true)
             return
         }
        let _ =  self.wkWebView.goBack()
-   
     }
 
     /**

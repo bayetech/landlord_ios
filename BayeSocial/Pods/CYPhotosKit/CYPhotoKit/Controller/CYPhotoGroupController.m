@@ -61,15 +61,15 @@ static NSString *const smartAlbumsIdentifier = @"smartAlbumsIdentifier";
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         __strong typeof(weakSelf)strongSelf = weakSelf;
         if (status == PHAuthorizationStatusDenied) {
-            BKLog(@"用户拒绝当前应用访问相册,我们需要提醒用户打开访问开关");
+            DLog(@"用户拒绝当前应用访问相册,我们需要提醒用户打开访问开关");
             [strongSelf performSelectorOnMainThread:@selector(showAuthorizedFailureViewController) withObject:nil waitUntilDone:NO];
         }else if (status == PHAuthorizationStatusRestricted){
-            BKLog(@"家长控制,不允许访问");
+            DLog(@"家长控制,不允许访问");
             [strongSelf performSelectorOnMainThread:@selector(showAuthorizedFailureViewController) withObject:nil waitUntilDone:NO];
         }else if (status == PHAuthorizationStatusNotDetermined){
-            BKLog(@"用户还没有做出选择");
+            DLog(@"用户还没有做出选择");
         }else if (status == PHAuthorizationStatusAuthorized){
-            BKLog(@"用户允许当前应用访问相册");
+            DLog(@"用户允许当前应用访问相册");
             [strongSelf performSelectorOnMainThread:@selector(photosAuthorizedSuccess) withObject:nil waitUntilDone:NO];
         }
         
@@ -109,11 +109,11 @@ static NSString *const smartAlbumsIdentifier = @"smartAlbumsIdentifier";
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // 如果所有照片有照片 就进所有照片的详情页面
             NSArray *array = strongSelf.sectionFetchResults.firstObject;
+            [strongSelf.tableView reloadData];
             if ([array count] > 0) {
                 CYPhotosCollection *photoCollection = [array firstObject];
                 [strongSelf openPhotosListViewController:photoCollection animated:NO];
             }
-            [strongSelf.tableView reloadData];
         }];
      
     }];
@@ -226,7 +226,7 @@ static NSString *const smartAlbumsIdentifier = @"smartAlbumsIdentifier";
 
 - (void)dealloc {
     
-//    NSLog(@"-- %s ---\n",__func__);
+    DLog(@"dealloc - %@",self);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
     

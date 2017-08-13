@@ -127,6 +127,13 @@ public:
     // functions which take a Schema from within the migration function.
     using MigrationFunction = std::function<void (SharedRealm old_realm, SharedRealm realm, Schema&)>;
 
+    // A callback function to be called the first time when a schema is created.
+    // It is passed a SharedRealm which is in a write transaction with the schema
+    // initialized. So it is possible to create some initial objects inside the callback
+    // with the given SharedRealm. Those changes will be committed together with the
+    // schema creation in a single transaction.
+    using DataInitializationFunction = std::function<void (SharedRealm realm)>;
+
     // A callback function called when opening a SharedRealm when no cached
     // version of this Realm exists. It is passed the total bytes allocated for
     // the file (file size) and the total bytes used by data in the file.
@@ -151,10 +158,12 @@ public:
         // Optional schema for the file.
         // If the schema and schema version are supplied, update_schema() is
         // called with the supplied schema, version and migration function when
-        // the Realm is actually opened and not just retreived from the cache
+        // the Realm is actually opened and not just retrieved from the cache
         util::Optional<Schema> schema;
         uint64_t schema_version = -1;
         MigrationFunction migration_function;
+
+        DataInitializationFunction initialization_function;
 
         // A callback function called when opening a SharedRealm when no cached
         // version of this Realm exists. It is passed the total bytes allocated for
@@ -207,6 +216,7 @@ public:
     // Updates a Realm to a given schema, using the Realm's pre-set schema mode.
     void update_schema(Schema schema, uint64_t version=0,
                        MigrationFunction migration_function=nullptr,
+                       DataInitializationFunction initialization_function=nullptr,
                        bool in_transaction=false);
 
     // Set the schema used for this Realm, but do not update the file's schema
@@ -361,6 +371,7 @@ private:
 
     void add_schema_change_handler();
     void cache_new_schema();
+    void notify_schema_changed();
 
 public:
     std::unique_ptr<BindingContext> m_binding_context;

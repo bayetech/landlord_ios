@@ -7,10 +7,24 @@
 //
 
 #import "CYPhotosAsset.h"
+#import "CYPhotosManager.h"
+#import "CYPhotosKit.h"
 
 @implementation CYPhotosAsset
 
+/**
+ 初始化并传递一个 PHAsset 对象
+ */
+- (instancetype) initWithAsset:(PHAsset *_Nullable)asset {
+    
+    if (self = [super init]) {
+        self.asset = asset;
+    }
+    return self;
+}
+
 - (void)setAsset:(PHAsset *)asset {
+    
     _asset  = asset;
     
     __weak typeof(self)weakSelf = self;
@@ -42,10 +56,12 @@
     }
     return _originalImg;
 }
-
+- (NSString *)localIdentifier {
+    return _asset.localIdentifier;
+}
 - (void)dealloc {
     
-//    CYLog(@"--dealloc--\n");
+    DLog(@"--dealloc--\n");
     
 }
 @end

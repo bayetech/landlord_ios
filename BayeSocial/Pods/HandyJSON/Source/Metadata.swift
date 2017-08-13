@@ -47,8 +47,8 @@ extension MetadataType {
         return Metadata.Kind(flag: UnsafePointer<Int>(pointer).pointee)
     }
 
-    init?(type: Any.Type) {
-        self.init(pointer: unsafeBitCast(type, to: UnsafePointer<Int>.self))
+    init?(fromType: Any.Type) {
+        self.init(pointer: unsafeBitCast(fromType, to: UnsafePointer<Int>.self))
         if let kind = type(of: self).kind, kind != self.kind {
             return nil
         }
@@ -143,7 +143,7 @@ extension Metadata {
             }
 
             // ignore objc-runtime layer
-            guard let metaclass = Metadata.Class(type: superclass), metaclass.isSwiftClass else {
+            guard let metaclass = Metadata.Class(fromType: superclass), metaclass.isSwiftClass else {
                 return nil
             }
 

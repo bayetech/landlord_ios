@@ -39,10 +39,16 @@ typedef void(^PhotosCompletion)(NSArray <CYPhotosAsset*> *_Nullable result);
 
 /** cyPhotosDelegate */
 @property (nonatomic,weak,nullable) id <CYPhotoNavigationControllerDelegate,UINavigationControllerDelegate> delegate;
+
 /**
  *  最大选择图片的数量
  */
 @property (nonatomic,assign) NSInteger maxPickerImageCount;
+
+/**
+ 已经选择过的图片数组
+ */
+@property (nonatomic,weak) NSArray <CYPhotosAsset *>* _Nullable selectImages;
 
 @end
 
