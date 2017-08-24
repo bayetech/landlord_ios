@@ -227,6 +227,7 @@ class BKNetworkManager: NSObject {
             responseResult.statusCode            = response.response?.statusCode ?? 0
             
             if response.result.isSuccess {
+                
                 if success != nil {
                     guard response.result.value != nil else {
                         responseResult.value = [String : JSON]()

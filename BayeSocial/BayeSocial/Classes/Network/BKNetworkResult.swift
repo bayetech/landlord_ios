@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 /// 网络请求结果处理
-class BKNetworkResult: NSObject {
+class BKNetworkResult : NSObject {
 
     var error : NSError = NSError(domain: "未知错误", code: 505, userInfo: nil) {
         didSet {
