@@ -9,11 +9,11 @@ pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
 pod 'AliyunOSSiOS', '~> 2.6.2'
 pod 'HyphenateLite'
 pod 'WebViewJavascriptBridge', '~> 6.0.2'
-pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git' , :branch => 'swift4'
+pod 'Alamofire'
 
 pod 'SwiftyJSON', '~> 3.1.4'
-#pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager.git' , :branch => 'swift4'
-pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git' , :branch => 'swift4'
+
+pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git' , :tag => '4.0.1'
 
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift4'
 pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :branch => 'swift-4'

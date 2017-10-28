@@ -57,8 +57,8 @@ In order to keep Alamofire focused specifically on core networking implementatio
 ## Requirements
 
 - iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 8.1+
-- Swift 3.0+
+- Xcode 8.1, 8.2, 8.3, and 9.0
+- Swift 3.0, 3.1, 3.2, and 4.0
 
 ## Migration Guides
 
@@ -191,13 +191,16 @@ Handling the `Response` of a `Request` made in Alamofire involves chaining a res
 
 ```swift
 Alamofire.request("https://httpbin.org/get").responseJSON { response in
-    print(response.request)  // original URL request
-    print(response.response) // HTTP URL response
-    print(response.data)     // server data
-    print(response.result)   // result of response serialization
+    print("Request: \(String(describing: response.request))")   // original url request
+    print("Response: \(String(describing: response.response))") // http url response
+    print("Result: \(response.result)")                         // response serialization result
 
-    if let JSON = response.result.value {
-        print("JSON: \(JSON)")
+    if let json = response.result.value {
+        print("JSON: \(json)") // serialized json response
+    }
+
+    if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+        print("Data: \(utf8Text)") // original server data as UTF8 string
     }
 }
 ```
